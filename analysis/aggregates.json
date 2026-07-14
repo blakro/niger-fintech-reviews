@@ -1,0 +1,819 @@
+{
+ "kpis": {
+  "total_reviews": 32586,
+  "n_apps": 20,
+  "avg_score": 4.1,
+  "pct_negative": 16.4,
+  "reply_rate": 43.8,
+  "period": "2019-01-16 → 2026-07-13"
+ },
+ "by_app": [
+  {
+   "app_name": "My Airtel",
+   "reviews": 5000,
+   "avg": 4.42,
+   "pct_neg": 8.48,
+   "reply": 100.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "My Nita",
+   "reviews": 5000,
+   "avg": 4.7,
+   "pct_neg": 2.72,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "Wave",
+   "reviews": 5000,
+   "avg": 4.64,
+   "pct_neg": 5.24,
+   "reply": 0.14,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "Ecobank Mobile",
+   "reviews": 5000,
+   "avg": 2.78,
+   "pct_neg": 51.2,
+   "reply": 97.2,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "MyBOA",
+   "reviews": 4999,
+   "avg": 4.14,
+   "pct_neg": 11.16,
+   "reply": 87.2,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "Atlantique Mobile",
+   "reviews": 4263,
+   "avg": 4.07,
+   "pct_neg": 15.34,
+   "reply": 1.03,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "Amanata",
+   "reviews": 1694,
+   "avg": 4.42,
+   "pct_neg": 10.27,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "Coris Money V2",
+   "reviews": 572,
+   "avg": 2.97,
+   "pct_neg": 46.5,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "My KEAZ (Orabank)",
+   "reviews": 222,
+   "avg": 2.38,
+   "pct_neg": 61.26,
+   "reply": 0.0,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "Al Izza Business Pay",
+   "reviews": 186,
+   "avg": 4.35,
+   "pct_neg": 10.22,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "BSIC NET",
+   "reviews": 150,
+   "avg": 3.27,
+   "pct_neg": 36.67,
+   "reply": 0.0,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "BIA Niger Mobile",
+   "reviews": 126,
+   "avg": 4.13,
+   "pct_neg": 14.29,
+   "reply": 0.0,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "CCP Mobile",
+   "reviews": 125,
+   "avg": 3.87,
+   "pct_neg": 25.6,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "ZeynaCash",
+   "reviews": 89,
+   "avg": 4.06,
+   "pct_neg": 15.73,
+   "reply": 3.37,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "MyMoovNiger",
+   "reviews": 87,
+   "avg": 3.9,
+   "pct_neg": 22.99,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "BAGRINET",
+   "reviews": 44,
+   "avg": 3.64,
+   "pct_neg": 22.73,
+   "reply": 0.0,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "BIN MOBILE",
+   "reviews": 15,
+   "avg": 2.67,
+   "pct_neg": 60.0,
+   "reply": 0.0,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "BHN Mobile",
+   "reviews": 7,
+   "avg": 4.14,
+   "pct_neg": 14.29,
+   "reply": 14.29,
+   "cat": "Banque"
+  },
+  {
+   "app_name": "iMoney Finance",
+   "reviews": 5,
+   "avg": 3.4,
+   "pct_neg": 40.0,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  },
+  {
+   "app_name": "AFUWA MONEY",
+   "reviews": 2,
+   "avg": 4.0,
+   "pct_neg": 0.0,
+   "reply": 0.0,
+   "cat": "Mobile Money"
+  }
+ ],
+ "monthly": [
+  {
+   "month": "2023-01",
+   "n": 469,
+   "avg": 3.85
+  },
+  {
+   "month": "2023-02",
+   "n": 201,
+   "avg": 3.84
+  },
+  {
+   "month": "2023-03",
+   "n": 247,
+   "avg": 3.66
+  },
+  {
+   "month": "2023-04",
+   "n": 232,
+   "avg": 3.75
+  },
+  {
+   "month": "2023-05",
+   "n": 301,
+   "avg": 3.43
+  },
+  {
+   "month": "2023-06",
+   "n": 175,
+   "avg": 3.68
+  },
+  {
+   "month": "2023-07",
+   "n": 199,
+   "avg": 3.49
+  },
+  {
+   "month": "2023-08",
+   "n": 168,
+   "avg": 3.73
+  },
+  {
+   "month": "2023-09",
+   "n": 242,
+   "avg": 3.09
+  },
+  {
+   "month": "2023-10",
+   "n": 202,
+   "avg": 3.75
+  },
+  {
+   "month": "2023-11",
+   "n": 170,
+   "avg": 3.49
+  },
+  {
+   "month": "2023-12",
+   "n": 215,
+   "avg": 3.74
+  },
+  {
+   "month": "2024-01",
+   "n": 264,
+   "avg": 3.91
+  },
+  {
+   "month": "2024-02",
+   "n": 350,
+   "avg": 4.14
+  },
+  {
+   "month": "2024-03",
+   "n": 401,
+   "avg": 4.09
+  },
+  {
+   "month": "2024-04",
+   "n": 357,
+   "avg": 4.02
+  },
+  {
+   "month": "2024-05",
+   "n": 310,
+   "avg": 4.17
+  },
+  {
+   "month": "2024-06",
+   "n": 310,
+   "avg": 4.13
+  },
+  {
+   "month": "2024-07",
+   "n": 370,
+   "avg": 4.15
+  },
+  {
+   "month": "2024-08",
+   "n": 346,
+   "avg": 3.99
+  },
+  {
+   "month": "2024-09",
+   "n": 275,
+   "avg": 4.03
+  },
+  {
+   "month": "2024-10",
+   "n": 371,
+   "avg": 4.01
+  },
+  {
+   "month": "2024-11",
+   "n": 247,
+   "avg": 4.18
+  },
+  {
+   "month": "2024-12",
+   "n": 319,
+   "avg": 4.13
+  },
+  {
+   "month": "2025-01",
+   "n": 337,
+   "avg": 4.2
+  },
+  {
+   "month": "2025-02",
+   "n": 232,
+   "avg": 4.14
+  },
+  {
+   "month": "2025-03",
+   "n": 294,
+   "avg": 4.31
+  },
+  {
+   "month": "2025-04",
+   "n": 274,
+   "avg": 4.2
+  },
+  {
+   "month": "2025-05",
+   "n": 334,
+   "avg": 4.06
+  },
+  {
+   "month": "2025-06",
+   "n": 601,
+   "avg": 4.29
+  },
+  {
+   "month": "2025-07",
+   "n": 427,
+   "avg": 4.16
+  },
+  {
+   "month": "2025-08",
+   "n": 368,
+   "avg": 4.14
+  },
+  {
+   "month": "2025-09",
+   "n": 477,
+   "avg": 4.24
+  },
+  {
+   "month": "2025-10",
+   "n": 1488,
+   "avg": 4.48
+  },
+  {
+   "month": "2025-11",
+   "n": 2076,
+   "avg": 4.56
+  },
+  {
+   "month": "2025-12",
+   "n": 1517,
+   "avg": 4.47
+  },
+  {
+   "month": "2026-01",
+   "n": 1364,
+   "avg": 4.45
+  },
+  {
+   "month": "2026-02",
+   "n": 1054,
+   "avg": 4.41
+  },
+  {
+   "month": "2026-03",
+   "n": 2337,
+   "avg": 4.57
+  },
+  {
+   "month": "2026-04",
+   "n": 1963,
+   "avg": 4.56
+  },
+  {
+   "month": "2026-05",
+   "n": 2392,
+   "avg": 4.59
+  },
+  {
+   "month": "2026-06",
+   "n": 2079,
+   "avg": 4.54
+  },
+  {
+   "month": "2026-07",
+   "n": 880,
+   "avg": 4.57
+  }
+ ],
+ "score_dist": {
+  "1": 4252,
+  "2": 1098,
+  "3": 1872,
+  "4": 5153,
+  "5": 20211
+ },
+ "by_category": [
+  {
+   "category": "Banque",
+   "n": 14826,
+   "avg": 3.62
+  },
+  {
+   "category": "Mobile Money",
+   "n": 17760,
+   "avg": 4.51
+  }
+ ],
+ "themes": [
+  {
+   "theme": "UX / Design",
+   "n": 3465,
+   "avg": 4.48,
+   "pct_neg": 4.8
+  },
+  {
+   "theme": "Transactions",
+   "n": 2577,
+   "avg": 3.7,
+   "pct_neg": 24.2
+  },
+  {
+   "theme": "Lenteur / Réseau",
+   "n": 1679,
+   "avg": 4.26,
+   "pct_neg": 13.3
+  },
+  {
+   "theme": "Connexion / OTP",
+   "n": 1276,
+   "avg": 2.41,
+   "pct_neg": 58.8
+  },
+  {
+   "theme": "Bugs / Crashs",
+   "n": 1040,
+   "avg": 1.98,
+   "pct_neg": 71.5
+  },
+  {
+   "theme": "Sécurité / Confiance",
+   "n": 834,
+   "avg": 4.13,
+   "pct_neg": 16.1
+  },
+  {
+   "theme": "Mise à jour",
+   "n": 605,
+   "avg": 2.32,
+   "pct_neg": 62.3
+  },
+  {
+   "theme": "Frais / Tarifs",
+   "n": 561,
+   "avg": 3.65,
+   "pct_neg": 25.0
+  },
+  {
+   "theme": "Service client",
+   "n": 175,
+   "avg": 1.92,
+   "pct_neg": 75.4
+  }
+ ],
+ "neg_themes_by_app": [
+  {
+   "app": "My Airtel",
+   "Connexion / OTP": 37,
+   "Bugs / Crashs": 26,
+   "Transactions": 42,
+   "Frais / Tarifs": 20,
+   "Service client": 4,
+   "Lenteur / Réseau": 31,
+   "Mise à jour": 16,
+   "UX / Design": 14,
+   "Sécurité / Confiance": 24
+  },
+  {
+   "app": "My Nita",
+   "Connexion / OTP": 9,
+   "Bugs / Crashs": 4,
+   "Transactions": 19,
+   "Frais / Tarifs": 15,
+   "Service client": 3,
+   "Lenteur / Réseau": 5,
+   "Mise à jour": 6,
+   "UX / Design": 8,
+   "Sécurité / Confiance": 5
+  },
+  {
+   "app": "Wave",
+   "Connexion / OTP": 5,
+   "Bugs / Crashs": 5,
+   "Transactions": 20,
+   "Frais / Tarifs": 4,
+   "Service client": 3,
+   "Lenteur / Réseau": 11,
+   "Mise à jour": 7,
+   "UX / Design": 4,
+   "Sécurité / Confiance": 8
+  },
+  {
+   "app": "Ecobank Mobile",
+   "Connexion / OTP": 433,
+   "Bugs / Crashs": 412,
+   "Transactions": 342,
+   "Frais / Tarifs": 54,
+   "Service client": 93,
+   "Lenteur / Réseau": 90,
+   "Mise à jour": 232,
+   "UX / Design": 65,
+   "Sécurité / Confiance": 72
+  },
+  {
+   "app": "MyBOA",
+   "Connexion / OTP": 60,
+   "Bugs / Crashs": 76,
+   "Transactions": 77,
+   "Frais / Tarifs": 24,
+   "Service client": 11,
+   "Lenteur / Réseau": 17,
+   "Mise à jour": 29,
+   "UX / Design": 26,
+   "Sécurité / Confiance": 10
+  },
+  {
+   "app": "Atlantique Mobile",
+   "Connexion / OTP": 98,
+   "Bugs / Crashs": 124,
+   "Transactions": 50,
+   "Frais / Tarifs": 11,
+   "Service client": 5,
+   "Lenteur / Réseau": 41,
+   "Mise à jour": 45,
+   "UX / Design": 18,
+   "Sécurité / Confiance": 5
+  }
+ ],
+ "monthly_by_app": [
+  {
+   "month": "2024-01",
+   "Atlantique Mobile": 4.19,
+   "Ecobank Mobile": 2.86,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.1,
+   "Wave": null
+  },
+  {
+   "month": "2024-02",
+   "Atlantique Mobile": 4.44,
+   "Ecobank Mobile": 2.27,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.27,
+   "Wave": null
+  },
+  {
+   "month": "2024-03",
+   "Atlantique Mobile": 4.29,
+   "Ecobank Mobile": 2.58,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.18,
+   "Wave": null
+  },
+  {
+   "month": "2024-04",
+   "Atlantique Mobile": 4.45,
+   "Ecobank Mobile": 2.72,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.05,
+   "Wave": null
+  },
+  {
+   "month": "2024-05",
+   "Atlantique Mobile": 4.53,
+   "Ecobank Mobile": 2.76,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.37,
+   "Wave": null
+  },
+  {
+   "month": "2024-06",
+   "Atlantique Mobile": 4.31,
+   "Ecobank Mobile": 3.54,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.29,
+   "Wave": null
+  },
+  {
+   "month": "2024-07",
+   "Atlantique Mobile": 4.5,
+   "Ecobank Mobile": 3.7,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.12,
+   "Wave": null
+  },
+  {
+   "month": "2024-08",
+   "Atlantique Mobile": 4.17,
+   "Ecobank Mobile": 2.73,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.13,
+   "Wave": null
+  },
+  {
+   "month": "2024-09",
+   "Atlantique Mobile": 4.24,
+   "Ecobank Mobile": 2.75,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.27,
+   "Wave": null
+  },
+  {
+   "month": "2024-10",
+   "Atlantique Mobile": 4.26,
+   "Ecobank Mobile": 2.8,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.42,
+   "Wave": null
+  },
+  {
+   "month": "2024-11",
+   "Atlantique Mobile": 4.26,
+   "Ecobank Mobile": 2.88,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.5,
+   "Wave": null
+  },
+  {
+   "month": "2024-12",
+   "Atlantique Mobile": 4.06,
+   "Ecobank Mobile": 3.0,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.33,
+   "Wave": null
+  },
+  {
+   "month": "2025-01",
+   "Atlantique Mobile": 4.22,
+   "Ecobank Mobile": 3.33,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.42,
+   "Wave": null
+  },
+  {
+   "month": "2025-02",
+   "Atlantique Mobile": 4.35,
+   "Ecobank Mobile": 3.28,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.39,
+   "Wave": null
+  },
+  {
+   "month": "2025-03",
+   "Atlantique Mobile": 4.49,
+   "Ecobank Mobile": 3.47,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.33,
+   "Wave": null
+  },
+  {
+   "month": "2025-04",
+   "Atlantique Mobile": 4.55,
+   "Ecobank Mobile": 2.73,
+   "My Airtel": null,
+   "My Nita": null,
+   "MyBOA": 4.29,
+   "Wave": null
+  },
+  {
+   "month": "2025-05",
+   "Atlantique Mobile": 4.42,
+   "Ecobank Mobile": 2.82,
+   "My Airtel": null,
+   "My Nita": 4.53,
+   "MyBOA": 4.22,
+   "Wave": null
+  },
+  {
+   "month": "2025-06",
+   "Atlantique Mobile": 4.07,
+   "Ecobank Mobile": 2.87,
+   "My Airtel": null,
+   "My Nita": 4.48,
+   "MyBOA": 4.45,
+   "Wave": null
+  },
+  {
+   "month": "2025-07",
+   "Atlantique Mobile": 4.42,
+   "Ecobank Mobile": 3.28,
+   "My Airtel": null,
+   "My Nita": 4.21,
+   "MyBOA": 4.18,
+   "Wave": null
+  },
+  {
+   "month": "2025-08",
+   "Atlantique Mobile": 4.27,
+   "Ecobank Mobile": 3.1,
+   "My Airtel": null,
+   "My Nita": 4.61,
+   "MyBOA": 4.39,
+   "Wave": null
+  },
+  {
+   "month": "2025-09",
+   "Atlantique Mobile": 4.22,
+   "Ecobank Mobile": 3.08,
+   "My Airtel": 4.43,
+   "My Nita": 4.47,
+   "MyBOA": 4.43,
+   "Wave": null
+  },
+  {
+   "month": "2025-10",
+   "Atlantique Mobile": 4.41,
+   "Ecobank Mobile": 3.29,
+   "My Airtel": 4.41,
+   "My Nita": 4.73,
+   "MyBOA": 4.36,
+   "Wave": null
+  },
+  {
+   "month": "2025-11",
+   "Atlantique Mobile": 4.24,
+   "Ecobank Mobile": 2.74,
+   "My Airtel": 4.48,
+   "My Nita": 4.68,
+   "MyBOA": 4.31,
+   "Wave": null
+  },
+  {
+   "month": "2025-12",
+   "Atlantique Mobile": 4.12,
+   "Ecobank Mobile": 2.52,
+   "My Airtel": 4.41,
+   "My Nita": 4.7,
+   "MyBOA": 4.41,
+   "Wave": null
+  },
+  {
+   "month": "2026-01",
+   "Atlantique Mobile": 4.39,
+   "Ecobank Mobile": 3.35,
+   "My Airtel": 4.33,
+   "My Nita": 4.75,
+   "MyBOA": 4.33,
+   "Wave": null
+  },
+  {
+   "month": "2026-02",
+   "Atlantique Mobile": 4.3,
+   "Ecobank Mobile": 2.8,
+   "My Airtel": 4.24,
+   "My Nita": 4.74,
+   "MyBOA": 4.21,
+   "Wave": null
+  },
+  {
+   "month": "2026-03",
+   "Atlantique Mobile": 4.26,
+   "Ecobank Mobile": 3.32,
+   "My Airtel": 4.44,
+   "My Nita": 4.77,
+   "MyBOA": 4.26,
+   "Wave": 4.67
+  },
+  {
+   "month": "2026-04",
+   "Atlantique Mobile": 4.55,
+   "Ecobank Mobile": 3.45,
+   "My Airtel": 4.47,
+   "My Nita": 4.71,
+   "MyBOA": 4.46,
+   "Wave": 4.62
+  },
+  {
+   "month": "2026-05",
+   "Atlantique Mobile": 4.35,
+   "Ecobank Mobile": 3.46,
+   "My Airtel": 4.52,
+   "My Nita": 4.74,
+   "MyBOA": 4.27,
+   "Wave": 4.68
+  },
+  {
+   "month": "2026-06",
+   "Atlantique Mobile": 4.61,
+   "Ecobank Mobile": 3.26,
+   "My Airtel": 4.48,
+   "My Nita": 4.72,
+   "MyBOA": 4.39,
+   "Wave": 4.58
+  },
+  {
+   "month": "2026-07",
+   "Atlantique Mobile": 4.5,
+   "Ecobank Mobile": 2.91,
+   "My Airtel": 4.52,
+   "My Nita": 4.75,
+   "MyBOA": 4.62,
+   "Wave": 4.58
+  }
+ ]
+}
