@@ -2,7 +2,7 @@
 
 Pipeline complet : **scraping → dataset → analyse → rapport business → dashboard HTML (GitHub Pages)**.
 
-🔗 **Dashboard interactif** : `https://<votre-user>.github.io/<repo>/` (via GitHub Pages, dossier `docs/`)
+🔗 **Dashboard interactif** : https://blakro.github.io/niger-fintech-reviews/ (via GitHub Pages, dossier `docs/`)
 
 ## 🗂 Structure
 
