@@ -3,150 +3,511 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Money & Banques Niger — Avis Play Store</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
+<title>Avis Fintech Niger</title>
+<meta name="description" content="Ce que disent les avis Google Play sur les applications de mobile money et de banque au Niger : classement, motifs de plainte, effet des mises à jour, réponses des éditeurs.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<!-- data.js est généré par analysis/analyze_reviews.py : il contient tous les chiffres affichés ici -->
+<script src="data.js"></script>
 <style>
-:root{--bg:#f4f6f9;--card:#fff;--header:#0f2a43;--txt:#1c2b36;--sub:#64748b;--pos:#16a34a;--neg:#dc2626;--radius:10px;--gap:16px}
+:root{
+  color-scheme:light;
+  --page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#6f6e69;
+  --grid:#e1e0d9;--axis:#c3c2b7;--border:rgba(11,11,11,.10);--header:#0f2a43;--header-ink:#f0efec;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;
+  --star1:#c93a3a;--star2:#f0a09a;--star3:#b9b8b0;--star4:#86b6ef;--star5:#256abf;
+  --good-text:#006300;--bad-text:#b42318;--tip-bg:#0b0b0b;--tip-ink:#f0efec;
+  --radius:10px;--gap:16px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#a3a29b;
+    --grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--header:#13283d;--header-ink:#f0efec;
+    --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;
+    --star1:#e66767;--star2:#8c3434;--star3:#5a5955;--star4:#184f95;--star5:#5598e7;
+    --good-text:#0ca30c;--bad-text:#f07575;--tip-bg:#f0efec;--tip-ink:#0b0b0b;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#a3a29b;
+  --grid:#2c2c2a;--axis:#383835;--border:rgba(255,255,255,.10);--header:#13283d;--header-ink:#f0efec;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;
+  --star1:#e66767;--star2:#8c3434;--star3:#5a5955;--star4:#184f95;--star5:#5598e7;
+  --good-text:#0ca30c;--bad-text:#f07575;--tip-bg:#f0efec;--tip-ink:#0b0b0b;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);padding:20px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--page);color:var(--ink);padding:20px 16px;line-height:1.45}
+a{color:var(--s1)}
 .wrap{max-width:1200px;margin:0 auto}
-header{background:var(--header);color:#fff;padding:22px 26px;border-radius:var(--radius);margin-bottom:var(--gap);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
-header h1{font-size:20px;font-weight:600}
-header .sub{font-size:13px;color:#cbd5e1;margin-top:4px}
-.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.filters label{font-size:12px;color:#cbd5e1}
-.filters select{padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;font-size:13px}
-.filters select option{color:#111}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:var(--gap);margin-bottom:var(--gap)}
-.kpi{background:var(--card);border-radius:var(--radius);padding:18px 22px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.kpi .l{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px}
-.kpi .v{font-size:26px;font-weight:700;margin-top:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:var(--gap);margin-bottom:var(--gap)}
-.card{background:var(--card);border-radius:var(--radius);padding:18px 22px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.card h3{font-size:14px;font-weight:600;margin-bottom:14px}
-canvas{max-height:320px}
+header.top{background:var(--header);color:var(--header-ink);padding:22px 26px;border-radius:var(--radius);margin-bottom:var(--gap)}
+header.top h1{font-size:21px;font-weight:650}
+header.top .sub{font-size:13px;opacity:.85;margin-top:4px}
+header.top .links{margin-top:10px;font-size:13px;display:flex;gap:16px;flex-wrap:wrap}
+header.top a{color:#9ec5f4}
+h2{font-size:17px;font-weight:650;margin:28px 0 4px}
+.lead{color:var(--ink2);font-size:14px;margin-bottom:12px;max-width:860px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;min-width:0}
+.card h3{font-size:14px;font-weight:600}
+.card .how{font-size:12.5px;color:var(--muted);margin:2px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:var(--gap);margin-bottom:var(--gap)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:var(--gap);margin-bottom:var(--gap)}
+.kpi .l{font-size:12px;color:var(--ink2)}
+.kpi .v{font-size:26px;font-weight:700;margin-top:2px}
+.kpi .s{font-size:12px;color:var(--muted);margin-top:2px}
+.takeaways{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap);margin-bottom:var(--gap)}
+.takeaways .card{border-left:4px solid var(--s1)}
+.takeaways b{display:block;font-size:14px;margin-bottom:4px}
+.takeaways p{font-size:13.5px;color:var(--ink2)}
+.chart{position:relative;height:300px}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 12px;font-size:13px;color:var(--ink2)}
+select{padding:6px 10px;border-radius:6px;border:1px solid var(--axis);background:var(--surface);color:var(--ink);font-size:13px}
 .tbl{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{cursor:pointer;text-align:left;padding:9px 10px;border-bottom:2px solid #e2e8f0;color:var(--sub);font-size:11px;text-transform:uppercase;white-space:nowrap}
-td{padding:9px 10px;border-bottom:1px solid #f1f5f9}
-tr:hover td{background:#f8fafc}
-.pos{color:var(--pos);font-weight:600}.neg{color:var(--neg);font-weight:600}
-.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600}
-.badge.mm{background:#dcfce7;color:#166534}.badge.bk{background:#dbeafe;color:#1e40af}
-footer{text-align:center;color:var(--sub);font-size:12px;margin-top:18px}
-@media(max-width:768px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--axis);color:var(--ink2);font-size:12px;font-weight:600;white-space:nowrap;vertical-align:bottom}
+th button{all:unset;cursor:pointer}
+th button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+td{padding:8px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+td.num,th.num{text-align:right}
+.sub-v{color:var(--muted);font-size:11.5px}
+.up{color:var(--good-text);font-weight:600}.down{color:var(--bad-text);font-weight:600}
+.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11.5px;border:1px solid var(--border);white-space:nowrap}
+.dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.heat td.cell{text-align:center;min-width:64px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--gap)}
+.tile .v{font-size:30px;font-weight:700}
+.tile .l{font-size:13px;color:var(--ink2)}
+details{margin-top:10px;font-size:13px}
+details summary{cursor:pointer;color:var(--ink2)}
+details .tbl{margin-top:8px;max-height:320px;overflow:auto}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--gap)}
+blockquote{font-size:14px;margin-bottom:8px}
+.quote-meta{font-size:12px;color:var(--muted)}
+.note{font-size:13px;color:var(--ink2);background:var(--surface);border:1px dashed var(--axis);border-radius:var(--radius);padding:12px 16px;margin-bottom:var(--gap)}
+ul.method{padding-left:20px;font-size:13.5px;color:var(--ink2)}
+ul.method li{margin-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header>
-  <div>
-    <h1>Mobile Money & Banques — Niger 🇳🇪</h1>
-    <div class="sub">Analyse des avis Google Play · <span id="period"></span></div>
-  </div>
-  <div class="filters">
-    <label>Catégorie</label>
-    <select id="fCat"><option value="all">Toutes</option><option>Mobile Money</option><option>Banque</option></select>
-    <label>Volume min.</label>
-    <select id="fMin"><option value="0">Tous</option><option value="100">≥ 100 avis</option><option value="1000" selected>≥ 1 000 avis</option></select>
+
+<header class="top">
+  <h1>Mobile Money &amp; Banques au Niger : ce que disent les avis Google Play</h1>
+  <div class="sub" id="subtitle"></div>
+  <div class="links">
+    <a href="https://github.com/blakro/niger-fintech-reviews#readme">Comment cette analyse est faite (README)</a>
+    <a href="https://github.com/blakro/niger-fintech-reviews/blob/main/report/rapport_business.md">Rapport complet</a>
   </div>
 </header>
 
-<section class="kpis">
-  <div class="kpi"><div class="l">Avis analysés</div><div class="v" id="kTotal"></div></div>
-  <div class="kpi"><div class="l">Applications</div><div class="v" id="kApps"></div></div>
-  <div class="kpi"><div class="l">Note moyenne</div><div class="v" id="kAvg"></div></div>
-  <div class="kpi"><div class="l">Avis négatifs (1–2★)</div><div class="v neg" id="kNeg"></div></div>
-  <div class="kpi"><div class="l">Taux de réponse éditeur</div><div class="v" id="kReply"></div></div>
-</section>
+<h2>À retenir</h2>
+<section class="takeaways" id="takeaways"></section>
 
-<section class="grid">
-  <div class="card"><h3>Note moyenne par application</h3><canvas id="cApps"></canvas></div>
-  <div class="card"><h3>Distribution des notes</h3><canvas id="cDist"></canvas></div>
-</section>
-<section class="grid">
-  <div class="card"><h3>Volume & note moyenne mensuels (depuis 2023)</h3><canvas id="cMonthly"></canvas></div>
-  <div class="card"><h3>Thèmes des avis — % d'avis négatifs par thème</h3><canvas id="cThemes"></canvas></div>
-</section>
-<section class="grid">
-  <div class="card" style="grid-column:1/-1"><h3>Thèmes des avis négatifs — top 6 applications</h3><canvas id="cNegThemes" style="max-height:360px"></canvas></div>
-</section>
+<section class="kpis" id="kpis"></section>
 
-<section class="card tbl">
-  <h3>Détail par application (cliquer un en-tête pour trier)</h3>
-  <table id="tbl"><thead><tr>
-    <th data-k="app_name">Application</th><th data-k="cat">Catégorie</th>
-    <th data-k="reviews">Avis</th><th data-k="avg">Note moy.</th>
-    <th data-k="pct_neg">% négatifs</th><th data-k="reply">% réponse</th>
-  </tr></thead><tbody></tbody></table>
-</section>
-<footer>Source : avis publics Google Play (google-play-scraper) · Plafond 5 000 avis/app · Avis en français uniquement (choix du projet) · Les apps multi-pays (Wave, Airtel, Ecobank…) incluent des avis hors Niger — limite documentée.</footer>
+<!-- ───────────── 1. Classement ───────────── -->
+<h2>1. Classement des applications</h2>
+<p class="lead">La <b>note ajustée</b> corrige les apps qui ont très peu d'avis : chacune démarre comme si elle avait déjà
+<span id="priorW"></span> avis à la note moyenne du secteur. Une app avec 5 avis à 5/5 ne passe donc pas devant une app avec 5 000 avis à 4,7/5.</p>
+<div class="controls" role="group" aria-label="Filtres du classement">
+  <label for="fCat">Catégorie</label>
+  <select id="fCat"><option value="all">Toutes</option><option>Mobile Money</option><option>Banque</option></select>
+  <label for="fMin">Nombre d'avis</label>
+  <select id="fMin"><option value="0">Toutes les apps</option><option value="100" selected>100 avis ou plus</option><option value="1000">1 000 avis ou plus</option></select>
 </div>
-<script>
-const D = {"kpis": {"total_reviews": 32586, "n_apps": 20, "avg_score": 4.1, "pct_negative": 16.4, "reply_rate": 43.8, "period": "2019-01-16 → 2026-07-13"}, "by_app": [{"app_name": "My Airtel", "reviews": 5000, "avg": 4.42, "pct_neg": 8.48, "reply": 100.0, "cat": "Mobile Money"}, {"app_name": "My Nita", "reviews": 5000, "avg": 4.7, "pct_neg": 2.72, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "Wave", "reviews": 5000, "avg": 4.64, "pct_neg": 5.24, "reply": 0.14, "cat": "Mobile Money"}, {"app_name": "Ecobank Mobile", "reviews": 5000, "avg": 2.78, "pct_neg": 51.2, "reply": 97.2, "cat": "Banque"}, {"app_name": "MyBOA", "reviews": 4999, "avg": 4.14, "pct_neg": 11.16, "reply": 87.2, "cat": "Banque"}, {"app_name": "Atlantique Mobile", "reviews": 4263, "avg": 4.07, "pct_neg": 15.34, "reply": 1.03, "cat": "Banque"}, {"app_name": "Amanata", "reviews": 1694, "avg": 4.42, "pct_neg": 10.27, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "Coris Money V2", "reviews": 572, "avg": 2.97, "pct_neg": 46.5, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "My KEAZ (Orabank)", "reviews": 222, "avg": 2.38, "pct_neg": 61.26, "reply": 0.0, "cat": "Banque"}, {"app_name": "Al Izza Business Pay", "reviews": 186, "avg": 4.35, "pct_neg": 10.22, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "BSIC NET", "reviews": 150, "avg": 3.27, "pct_neg": 36.67, "reply": 0.0, "cat": "Banque"}, {"app_name": "BIA Niger Mobile", "reviews": 126, "avg": 4.13, "pct_neg": 14.29, "reply": 0.0, "cat": "Banque"}, {"app_name": "CCP Mobile", "reviews": 125, "avg": 3.87, "pct_neg": 25.6, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "ZeynaCash", "reviews": 89, "avg": 4.06, "pct_neg": 15.73, "reply": 3.37, "cat": "Mobile Money"}, {"app_name": "MyMoovNiger", "reviews": 87, "avg": 3.9, "pct_neg": 22.99, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "BAGRINET", "reviews": 44, "avg": 3.64, "pct_neg": 22.73, "reply": 0.0, "cat": "Banque"}, {"app_name": "BIN MOBILE", "reviews": 15, "avg": 2.67, "pct_neg": 60.0, "reply": 0.0, "cat": "Banque"}, {"app_name": "BHN Mobile", "reviews": 7, "avg": 4.14, "pct_neg": 14.29, "reply": 14.29, "cat": "Banque"}, {"app_name": "iMoney Finance", "reviews": 5, "avg": 3.4, "pct_neg": 40.0, "reply": 0.0, "cat": "Mobile Money"}, {"app_name": "AFUWA MONEY", "reviews": 2, "avg": 4.0, "pct_neg": 0.0, "reply": 0.0, "cat": "Mobile Money"}], "monthly": [{"month": "2023-01", "n": 469, "avg": 3.85}, {"month": "2023-02", "n": 201, "avg": 3.84}, {"month": "2023-03", "n": 247, "avg": 3.66}, {"month": "2023-04", "n": 232, "avg": 3.75}, {"month": "2023-05", "n": 301, "avg": 3.43}, {"month": "2023-06", "n": 175, "avg": 3.68}, {"month": "2023-07", "n": 199, "avg": 3.49}, {"month": "2023-08", "n": 168, "avg": 3.73}, {"month": "2023-09", "n": 242, "avg": 3.09}, {"month": "2023-10", "n": 202, "avg": 3.75}, {"month": "2023-11", "n": 170, "avg": 3.49}, {"month": "2023-12", "n": 215, "avg": 3.74}, {"month": "2024-01", "n": 264, "avg": 3.91}, {"month": "2024-02", "n": 350, "avg": 4.14}, {"month": "2024-03", "n": 401, "avg": 4.09}, {"month": "2024-04", "n": 357, "avg": 4.02}, {"month": "2024-05", "n": 310, "avg": 4.17}, {"month": "2024-06", "n": 310, "avg": 4.13}, {"month": "2024-07", "n": 370, "avg": 4.15}, {"month": "2024-08", "n": 346, "avg": 3.99}, {"month": "2024-09", "n": 275, "avg": 4.03}, {"month": "2024-10", "n": 371, "avg": 4.01}, {"month": "2024-11", "n": 247, "avg": 4.18}, {"month": "2024-12", "n": 319, "avg": 4.13}, {"month": "2025-01", "n": 337, "avg": 4.2}, {"month": "2025-02", "n": 232, "avg": 4.14}, {"month": "2025-03", "n": 294, "avg": 4.31}, {"month": "2025-04", "n": 274, "avg": 4.2}, {"month": "2025-05", "n": 334, "avg": 4.06}, {"month": "2025-06", "n": 601, "avg": 4.29}, {"month": "2025-07", "n": 427, "avg": 4.16}, {"month": "2025-08", "n": 368, "avg": 4.14}, {"month": "2025-09", "n": 477, "avg": 4.24}, {"month": "2025-10", "n": 1488, "avg": 4.48}, {"month": "2025-11", "n": 2076, "avg": 4.56}, {"month": "2025-12", "n": 1517, "avg": 4.47}, {"month": "2026-01", "n": 1364, "avg": 4.45}, {"month": "2026-02", "n": 1054, "avg": 4.41}, {"month": "2026-03", "n": 2337, "avg": 4.57}, {"month": "2026-04", "n": 1963, "avg": 4.56}, {"month": "2026-05", "n": 2392, "avg": 4.59}, {"month": "2026-06", "n": 2079, "avg": 4.54}, {"month": "2026-07", "n": 880, "avg": 4.57}], "score_dist": {"1": 4252, "2": 1098, "3": 1872, "4": 5153, "5": 20211}, "by_category": [{"category": "Banque", "n": 14826, "avg": 3.62}, {"category": "Mobile Money", "n": 17760, "avg": 4.51}], "themes": [{"theme": "UX / Design", "n": 3465, "avg": 4.48, "pct_neg": 4.8}, {"theme": "Transactions", "n": 2577, "avg": 3.7, "pct_neg": 24.2}, {"theme": "Lenteur / Réseau", "n": 1679, "avg": 4.26, "pct_neg": 13.3}, {"theme": "Connexion / OTP", "n": 1276, "avg": 2.41, "pct_neg": 58.8}, {"theme": "Bugs / Crashs", "n": 1040, "avg": 1.98, "pct_neg": 71.5}, {"theme": "Sécurité / Confiance", "n": 834, "avg": 4.13, "pct_neg": 16.1}, {"theme": "Mise à jour", "n": 605, "avg": 2.32, "pct_neg": 62.3}, {"theme": "Frais / Tarifs", "n": 561, "avg": 3.65, "pct_neg": 25.0}, {"theme": "Service client", "n": 175, "avg": 1.92, "pct_neg": 75.4}], "neg_themes_by_app": [{"app": "My Airtel", "Connexion / OTP": 37, "Bugs / Crashs": 26, "Transactions": 42, "Frais / Tarifs": 20, "Service client": 4, "Lenteur / Réseau": 31, "Mise à jour": 16, "UX / Design": 14, "Sécurité / Confiance": 24}, {"app": "My Nita", "Connexion / OTP": 9, "Bugs / Crashs": 4, "Transactions": 19, "Frais / Tarifs": 15, "Service client": 3, "Lenteur / Réseau": 5, "Mise à jour": 6, "UX / Design": 8, "Sécurité / Confiance": 5}, {"app": "Wave", "Connexion / OTP": 5, "Bugs / Crashs": 5, "Transactions": 20, "Frais / Tarifs": 4, "Service client": 3, "Lenteur / Réseau": 11, "Mise à jour": 7, "UX / Design": 4, "Sécurité / Confiance": 8}, {"app": "Ecobank Mobile", "Connexion / OTP": 433, "Bugs / Crashs": 412, "Transactions": 342, "Frais / Tarifs": 54, "Service client": 93, "Lenteur / Réseau": 90, "Mise à jour": 232, "UX / Design": 65, "Sécurité / Confiance": 72}, {"app": "MyBOA", "Connexion / OTP": 60, "Bugs / Crashs": 76, "Transactions": 77, "Frais / Tarifs": 24, "Service client": 11, "Lenteur / Réseau": 17, "Mise à jour": 29, "UX / Design": 26, "Sécurité / Confiance": 10}, {"app": "Atlantique Mobile", "Connexion / OTP": 98, "Bugs / Crashs": 124, "Transactions": 50, "Frais / Tarifs": 11, "Service client": 5, "Lenteur / Réseau": 41, "Mise à jour": 45, "UX / Design": 18, "Sécurité / Confiance": 5}], "monthly_by_app": [{"month": "2024-01", "Atlantique Mobile": 4.19, "Ecobank Mobile": 2.86, "My Airtel": null, "My Nita": null, "MyBOA": 4.1, "Wave": null}, {"month": "2024-02", "Atlantique Mobile": 4.44, "Ecobank Mobile": 2.27, "My Airtel": null, "My Nita": null, "MyBOA": 4.27, "Wave": null}, {"month": "2024-03", "Atlantique Mobile": 4.29, "Ecobank Mobile": 2.58, "My Airtel": null, "My Nita": null, "MyBOA": 4.18, "Wave": null}, {"month": "2024-04", "Atlantique Mobile": 4.45, "Ecobank Mobile": 2.72, "My Airtel": null, "My Nita": null, "MyBOA": 4.05, "Wave": null}, {"month": "2024-05", "Atlantique Mobile": 4.53, "Ecobank Mobile": 2.76, "My Airtel": null, "My Nita": null, "MyBOA": 4.37, "Wave": null}, {"month": "2024-06", "Atlantique Mobile": 4.31, "Ecobank Mobile": 3.54, "My Airtel": null, "My Nita": null, "MyBOA": 4.29, "Wave": null}, {"month": "2024-07", "Atlantique Mobile": 4.5, "Ecobank Mobile": 3.7, "My Airtel": null, "My Nita": null, "MyBOA": 4.12, "Wave": null}, {"month": "2024-08", "Atlantique Mobile": 4.17, "Ecobank Mobile": 2.73, "My Airtel": null, "My Nita": null, "MyBOA": 4.13, "Wave": null}, {"month": "2024-09", "Atlantique Mobile": 4.24, "Ecobank Mobile": 2.75, "My Airtel": null, "My Nita": null, "MyBOA": 4.27, "Wave": null}, {"month": "2024-10", "Atlantique Mobile": 4.26, "Ecobank Mobile": 2.8, "My Airtel": null, "My Nita": null, "MyBOA": 4.42, "Wave": null}, {"month": "2024-11", "Atlantique Mobile": 4.26, "Ecobank Mobile": 2.88, "My Airtel": null, "My Nita": null, "MyBOA": 4.5, "Wave": null}, {"month": "2024-12", "Atlantique Mobile": 4.06, "Ecobank Mobile": 3.0, "My Airtel": null, "My Nita": null, "MyBOA": 4.33, "Wave": null}, {"month": "2025-01", "Atlantique Mobile": 4.22, "Ecobank Mobile": 3.33, "My Airtel": null, "My Nita": null, "MyBOA": 4.42, "Wave": null}, {"month": "2025-02", "Atlantique Mobile": 4.35, "Ecobank Mobile": 3.28, "My Airtel": null, "My Nita": null, "MyBOA": 4.39, "Wave": null}, {"month": "2025-03", "Atlantique Mobile": 4.49, "Ecobank Mobile": 3.47, "My Airtel": null, "My Nita": null, "MyBOA": 4.33, "Wave": null}, {"month": "2025-04", "Atlantique Mobile": 4.55, "Ecobank Mobile": 2.73, "My Airtel": null, "My Nita": null, "MyBOA": 4.29, "Wave": null}, {"month": "2025-05", "Atlantique Mobile": 4.42, "Ecobank Mobile": 2.82, "My Airtel": null, "My Nita": 4.53, "MyBOA": 4.22, "Wave": null}, {"month": "2025-06", "Atlantique Mobile": 4.07, "Ecobank Mobile": 2.87, "My Airtel": null, "My Nita": 4.48, "MyBOA": 4.45, "Wave": null}, {"month": "2025-07", "Atlantique Mobile": 4.42, "Ecobank Mobile": 3.28, "My Airtel": null, "My Nita": 4.21, "MyBOA": 4.18, "Wave": null}, {"month": "2025-08", "Atlantique Mobile": 4.27, "Ecobank Mobile": 3.1, "My Airtel": null, "My Nita": 4.61, "MyBOA": 4.39, "Wave": null}, {"month": "2025-09", "Atlantique Mobile": 4.22, "Ecobank Mobile": 3.08, "My Airtel": 4.43, "My Nita": 4.47, "MyBOA": 4.43, "Wave": null}, {"month": "2025-10", "Atlantique Mobile": 4.41, "Ecobank Mobile": 3.29, "My Airtel": 4.41, "My Nita": 4.73, "MyBOA": 4.36, "Wave": null}, {"month": "2025-11", "Atlantique Mobile": 4.24, "Ecobank Mobile": 2.74, "My Airtel": 4.48, "My Nita": 4.68, "MyBOA": 4.31, "Wave": null}, {"month": "2025-12", "Atlantique Mobile": 4.12, "Ecobank Mobile": 2.52, "My Airtel": 4.41, "My Nita": 4.7, "MyBOA": 4.41, "Wave": null}, {"month": "2026-01", "Atlantique Mobile": 4.39, "Ecobank Mobile": 3.35, "My Airtel": 4.33, "My Nita": 4.75, "MyBOA": 4.33, "Wave": null}, {"month": "2026-02", "Atlantique Mobile": 4.3, "Ecobank Mobile": 2.8, "My Airtel": 4.24, "My Nita": 4.74, "MyBOA": 4.21, "Wave": null}, {"month": "2026-03", "Atlantique Mobile": 4.26, "Ecobank Mobile": 3.32, "My Airtel": 4.44, "My Nita": 4.77, "MyBOA": 4.26, "Wave": 4.67}, {"month": "2026-04", "Atlantique Mobile": 4.55, "Ecobank Mobile": 3.45, "My Airtel": 4.47, "My Nita": 4.71, "MyBOA": 4.46, "Wave": 4.62}, {"month": "2026-05", "Atlantique Mobile": 4.35, "Ecobank Mobile": 3.46, "My Airtel": 4.52, "My Nita": 4.74, "MyBOA": 4.27, "Wave": 4.68}, {"month": "2026-06", "Atlantique Mobile": 4.61, "Ecobank Mobile": 3.26, "My Airtel": 4.48, "My Nita": 4.72, "MyBOA": 4.39, "Wave": 4.58}, {"month": "2026-07", "Atlantique Mobile": 4.5, "Ecobank Mobile": 2.91, "My Airtel": 4.52, "My Nita": 4.75, "MyBOA": 4.62, "Wave": 4.58}]};
-document.getElementById('period').textContent = D.kpis.period;
-const COLORS=['#2563eb','#16a34a','#f59e0b','#dc2626','#7c3aed','#0891b2','#db2777','#65a30d','#ea580c'];
-let charts={};
-function fmt(n){return n.toLocaleString('fr-FR')}
-function filtered(){
-  const cat=document.getElementById('fCat').value, min=+document.getElementById('fMin').value;
-  return D.by_app.filter(a=>(cat==='all'||a.cat===cat)&&a.reviews>=min);
-}
-function renderKPIs(rows){
-  const tot=rows.reduce((s,a)=>s+a.reviews,0);
-  const avg=tot?rows.reduce((s,a)=>s+a.avg*a.reviews,0)/tot:0;
-  const neg=tot?rows.reduce((s,a)=>s+a.pct_neg*a.reviews,0)/tot:0;
-  const rep=tot?rows.reduce((s,a)=>s+a.reply*a.reviews,0)/tot:0;
-  kTotal.textContent=fmt(tot); kApps.textContent=rows.length;
-  kAvg.textContent=avg.toFixed(2)+' ★'; kNeg.textContent=neg.toFixed(1)+' %'; kReply.textContent=rep.toFixed(1)+' %';
-}
-function barApps(rows){
-  if(charts.a)charts.a.destroy();
-  charts.a=new Chart(cApps,{type:'bar',data:{labels:rows.map(r=>r.app_name),
-    datasets:[{label:'Note moyenne',data:rows.map(r=>r.avg),
-      backgroundColor:rows.map(r=>r.avg>=4?'#16a34a':r.avg>=3?'#f59e0b':'#dc2626')}]},
-    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{min:0,max:5}},animation:false}});
-}
-function renderTable(rows){
-  const tb=document.querySelector('#tbl tbody'); tb.innerHTML='';
-  rows.forEach(r=>{
-    tb.insertAdjacentHTML('beforeend',`<tr><td><b>${r.app_name}</b></td>
-    <td><span class="badge ${r.cat==='Banque'?'bk':'mm'}">${r.cat}</span></td>
-    <td>${fmt(r.reviews)}</td><td class="${r.avg>=4?'pos':r.avg<3?'neg':''}">${r.avg.toFixed(2)}</td>
-    <td class="${r.pct_neg>30?'neg':''}">${r.pct_neg.toFixed(1)} %</td><td>${r.reply.toFixed(1)} %</td></tr>`);
-  });
-}
-let sortK='reviews',sortAsc=false;
-document.querySelectorAll('th').forEach(th=>th.onclick=()=>{
-  const k=th.dataset.k; sortAsc=(k===sortK)?!sortAsc:false; sortK=k; update();
-});
-function update(){
-  let rows=[...filtered()].sort((a,b)=>{
-    const x=a[sortK],y=b[sortK];
-    return (typeof x==='string'?x.localeCompare(y):x-y)*(sortAsc?1:-1);
-  });
-  renderKPIs(rows); barApps(rows.slice().sort((a,b)=>b.avg-a.avg)); renderTable(rows);
-}
-fCat.onchange=update; fMin.onchange=update;
+<section class="grid">
+  <div class="card" style="grid-column:1/-1">
+    <h3>Note ajustée par application (sur 5)</h3>
+    <p class="how">Plus la barre est longue, plus les utilisateurs sont satisfaits. Survolez une barre pour le détail.</p>
+    <div class="chart" id="rankBox"><canvas id="cRank" role="img" aria-label="Note ajustée par application"></canvas></div>
+  </div>
+</section>
+<section class="card">
+  <h3>Détail par application</h3>
+  <p class="how">Cliquez sur un en-tête pour trier. « Fourchette » = marge d'incertitude à 95 % du pourcentage d'avis négatifs : plus l'app a d'avis, plus elle est étroite.</p>
+  <div class="tbl"><table id="tblApps"></table></div>
+</section>
 
-// Static charts
-new Chart(cDist,{type:'doughnut',data:{labels:['1★','2★','3★','4★','5★'],
-  datasets:[{data:[1,2,3,4,5].map(s=>D.score_dist[s]||0),
-  backgroundColor:['#dc2626','#f97316','#f59e0b','#84cc16','#16a34a']}]},
-  options:{plugins:{legend:{position:'right'}},animation:false}});
-new Chart(cMonthly,{data:{labels:D.monthly.map(m=>m.month),datasets:[
-  {type:'bar',label:'Nb avis',data:D.monthly.map(m=>m.n),backgroundColor:'#93c5fd',yAxisID:'y'},
-  {type:'line',label:'Note moyenne',data:D.monthly.map(m=>m.avg),borderColor:'#dc2626',borderWidth:2,tension:.3,pointRadius:0,yAxisID:'y2'}]},
-  options:{scales:{y:{position:'left'},y2:{position:'right',min:1,max:5,grid:{display:false}}},animation:false}});
-new Chart(cThemes,{type:'bar',data:{labels:D.themes.map(t=>t.theme),
-  datasets:[{label:'% avis négatifs (1–2★)',data:D.themes.map(t=>t.pct_neg),
-  backgroundColor:D.themes.map(t=>t.pct_neg>50?'#dc2626':t.pct_neg>20?'#f59e0b':'#16a34a')}]},
-  options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:c=>`${fmt(D.themes[c.dataIndex].n)} avis mentionnent ce thème`}}},scales:{x:{max:100}},animation:false}});
-const NT=D.neg_themes_by_app, themeKeys=Object.keys(NT[0]).filter(k=>k!=='app');
-new Chart(cNegThemes,{type:'bar',data:{labels:NT.map(r=>r.app),
-  datasets:themeKeys.map((t,i)=>({label:t,data:NT.map(r=>r[t]),backgroundColor:COLORS[i%COLORS.length]}))},
-  options:{scales:{x:{stacked:true},y:{stacked:true}},animation:false,plugins:{legend:{position:'bottom'}}}});
-update();
+<!-- ───────────── 2. Banques vs Mobile Money ───────────── -->
+<h2>2. Banques ou mobile money : un écart à nuancer</h2>
+<p class="lead" id="gapLead"></p>
+<section class="tiles" id="gapTiles" style="margin-bottom:var(--gap)"></section>
+<section class="grid">
+  <div class="card">
+    <h3>Répartition des notes (1 à 5 étoiles)</h3>
+    <p class="how">Part de chaque note dans les avis de la catégorie. Rouge = mécontents, bleu = satisfaits.</p>
+    <div class="chart" style="height:190px"><canvas id="cDist" role="img" aria-label="Répartition des notes par catégorie"></canvas></div>
+    <details><summary>Voir les données</summary><div class="tbl" id="tDist"></div></details>
+  </div>
+  <div class="card">
+    <h3>Note moyenne par mois</h3>
+    <p class="how">Chaque ligne suit une catégorie. Les mois avec moins de 30 avis dans la catégorie ne sont pas tracés (trop peu fiables).</p>
+    <div class="chart"><canvas id="cCatMonthly" role="img" aria-label="Note moyenne mensuelle par catégorie"></canvas></div>
+    <details><summary>Voir les données</summary><div class="tbl" id="tCatMonthly"></div></details>
+  </div>
+</section>
+<section class="grid">
+  <div class="card" style="grid-column:1/-1">
+    <h3>Nombre d'avis par mois</h3>
+    <p class="how" id="volumeHow"></p>
+    <div class="chart" style="height:240px"><canvas id="cVolume" role="img" aria-label="Nombre d'avis par mois et par catégorie"></canvas></div>
+  </div>
+</section>
+
+<!-- ───────────── 3. Motifs de plainte ───────────── -->
+<h2>3. Pourquoi les utilisateurs se plaignent</h2>
+<p class="lead" id="themesLead"></p>
+<section class="grid">
+  <div class="card" style="grid-column:1/-1">
+    <h3>Part des avis négatifs (1–2★) qui citent chaque sujet</h3>
+    <p class="how">Un avis peut citer plusieurs sujets. Comparez les deux couleurs : les banques et le mobile money n'ont pas les mêmes problèmes.</p>
+    <div class="chart" style="height:400px"><canvas id="cThemes" role="img" aria-label="Part des avis négatifs citant chaque sujet, banques et mobile money"></canvas></div>
+  </div>
+  <div class="card" style="grid-column:1/-1">
+    <h3>Gravité des sujets</h3>
+    <p class="how">« Note quand cité » : note moyenne des avis qui parlent de ce sujet (plus c'est bas, plus le sujet fâche). « Votes utile » : nombre de fois où d'autres utilisateurs ont approuvé ces plaintes.</p>
+    <div class="tbl"><table id="tblThemes"></table></div>
+  </div>
+</section>
+<section class="card">
+  <h3>Sujets de plainte, application par application</h3>
+  <p class="how">Pour chaque app (au moins <span id="minNegMatrix"></span> avis négatifs) : % de ses avis négatifs qui citent le sujet. Plus la case est foncée, plus le sujet pèse dans ses plaintes.</p>
+  <div class="tbl heat"><table id="tblHeat"></table></div>
+</section>
+
+<!-- ───────────── 4. Évolution ───────────── -->
+<h2>4. Évolution des principales applications</h2>
+<p class="lead">Note moyenne mensuelle des 6 apps qui ont le plus d'avis. Les mois avec moins de 10 avis ne sont pas tracés ; une ligne qui démarre tard signifie que la collecte (plafonnée à 5 000 avis) ne remonte pas plus loin.</p>
+<section class="card" style="margin-bottom:var(--gap)">
+  <div class="chart" style="height:340px"><canvas id="cAppMonthly" role="img" aria-label="Note moyenne mensuelle des 6 principales applications"></canvas></div>
+  <details><summary>Voir les données</summary><div class="tbl" id="tAppMonthly"></div></details>
+</section>
+
+<!-- ───────────── 5. Versions ───────────── -->
+<h2>5. L'effet des mises à jour</h2>
+<p class="lead">Chaque avis indique la version de l'app utilisée. On peut donc voir quelles versions ont fait monter ou chuter la satisfaction
+(versions avec au moins <span id="minVer"></span> avis).</p>
+<div class="controls"><label for="fVer">Application</label><select id="fVer"></select></div>
+<section class="grid">
+  <div class="card">
+    <h3>Note moyenne par version</h3>
+    <p class="how">Versions dans l'ordre de leur apparition.</p>
+    <div class="chart"><canvas id="cVerAvg" role="img" aria-label="Note moyenne par version"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Nombre d'avis par version, selon la note</h3>
+    <p class="how">Si la note monte alors que le nombre d'avis négatifs ne baisse pas, l'amélioration vient surtout d'un afflux d'avis positifs.</p>
+    <div class="chart"><canvas id="cVerCount" role="img" aria-label="Nombre d'avis négatifs, neutres et positifs par version"></canvas></div>
+    <details><summary>Voir les données</summary><div class="tbl" id="tVer"></div></details>
+  </div>
+</section>
+<div class="note" id="verNote"></div>
+
+<!-- ───────────── 6. Réponses ───────────── -->
+<h2>6. Les éditeurs répondent-ils ?</h2>
+<p class="lead" id="replyLead"></p>
+<section class="grid">
+  <div class="card">
+    <h3>Taux de réponse de l'éditeur selon la note de l'avis</h3>
+    <p class="how">Toutes apps confondues.</p>
+    <div class="chart" style="height:240px"><canvas id="cReplies" role="img" aria-label="Taux de réponse selon la note"></canvas></div>
+    <details><summary>Voir les données</summary><div class="tbl" id="tReplies"></div></details>
+  </div>
+  <div class="card">
+    <h3>Qui répond, et comment</h3>
+    <p class="how">« Messages types » : réponses dont le début est identique mot pour mot à au moins 2 autres réponses de la même app.</p>
+    <div class="tbl"><table id="tblReplies"></table></div>
+  </div>
+</section>
+
+<!-- ───────────── 7. Verbatims ───────────── -->
+<h2>7. Ce que disent les utilisateurs</h2>
+<p class="lead">Les avis les plus approuvés par les autres utilisateurs (votes « utile »), pour chaque sujet. Les noms des auteurs ne sont pas affichés.</p>
+<div class="controls"><label for="fQuote">Sujet</label><select id="fQuote"></select></div>
+<section class="quotes" id="quotes"></section>
+
+<!-- ───────────── Méthode ───────────── -->
+<h2>Méthode et limites</h2>
+<section class="card">
+  <ul class="method" id="method"></ul>
+</section>
+
+<footer>Source : avis publics Google Play (google-play-scraper), storefront Niger, langue française. Données et code : github.com/blakro/niger-fintech-reviews</footer>
+</div>
+
+<script>
+(() => {
+const D = window.D;
+if (!D) { document.body.prepend('Données introuvables : lancez python analysis/analyze_reviews.py pour générer docs/data.js'); return; }
+
+// ── Outils ──────────────────────────────────────────────────────────────
+const $ = s => document.querySelector(s);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const nf = (x, d = 0) => x == null ? '—' : Number(x).toLocaleString('fr-FR', {minimumFractionDigits: d, maximumFractionDigits: d});
+const pc = (x, d = 1) => x == null ? '—' : nf(x, d) + ' %';
+const dt = s => s ? new Date(s + 'T00:00:00').toLocaleDateString('fr-FR', {day: 'numeric', month: 'long', year: 'numeric'}) : '—';
+const mo = s => { const [y, m] = s.split('-'); return new Date(+y, +m - 1, 1).toLocaleDateString('fr-FR', {month: 'short', year: 'numeric'}); };
+function h(tag, props, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (v == null || v === false) continue;
+    if (k === 'class') e.className = v;
+    else if (k === 'text') e.textContent = v;
+    else if (k === 'style') e.style.cssText = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  for (const c of kids.flat()) if (c != null && c !== false) e.append(c instanceof Node ? c : document.createTextNode(String(c)));
+  return e;
+}
+function table(headers, rows, numCols = []) {
+  return h('table', {}, h('thead', {}, h('tr', {}, headers.map((t, i) => h('th', {class: numCols.includes(i) ? 'num' : null, text: t})))),
+    h('tbody', {}, rows.map(r => h('tr', {}, r.map((c, i) => h('td', {class: numCols.includes(i) ? 'num' : null}, c))))));
+}
+const stars = n => '★'.repeat(n) + '☆'.repeat(5 - n);
+
+const K = D.kpis, P = D.params, W = D.windows;
+const pain = D.themes.filter(t => !t.positive);
+const cat = Object.fromEntries(D.by_category.map(c => [c.category, c]));
+const BK = cat['Banque'], MM = cat['Mobile Money'];
+const totalNeg = D.by_app.reduce((s, a) => s + a.n_neg, 0);
+const worst = [...D.by_app].sort((a, b) => b.n_neg - a.n_neg)[0];
+const ranked = D.by_app.filter(a => a.ranked);
+const best = [...ranked].sort((a, b) => b.adj - a.adj)[0];
+
+// ── Textes ──────────────────────────────────────────────────────────────
+$('#subtitle').textContent = `${nf(K.total_reviews)} avis · ${K.n_apps} applications · du ${dt(K.period_start)} au ${dt(K.period_end)}`;
+$('#priorW').textContent = P.prior_weight;
+$('#minNegMatrix').textContent = 50;
+$('#minVer').textContent = P.min_version_reviews;
+
+const gapFull = MM.avg - BK.avg, gapWin = MM.window.avg - BK.window.avg;
+const take = [
+  ['Le mobile money devance les banques… de moins en moins',
+   `Sur toute la période : ${nf(MM.avg, 2)}/5 contre ${nf(BK.avg, 2)}/5. Mais en comparant la même période récente (depuis le ${dt(W.common_start)}), l'écart tombe de ${nf(gapFull, 2)} à ${nf(gapWin, 2)} point : les applis bancaires ont progressé.`],
+  [`Problème n° 1 : ${pain[0].theme.toLowerCase()}`,
+   `Cité dans ${pc(pain[0].share_of_neg, 0)} des avis négatifs (${pc(pain[0].share_of_neg_bk, 0)} côté banques).` + (pain[0].theme === 'Connexion / Accès' ? ` Codes qui n'arrivent pas, comptes bloqués, changement de téléphone impossible.` : '')],
+  [`${worst.app_name} concentre ${pc(100 * worst.n_neg / totalNeg, 0)} des plaintes`,
+   `${nf(worst.n_neg)} des ${nf(totalNeg)} avis négatifs de l'échantillon visent cette seule application.`],
+  ['Répondre ne suffit pas',
+   `Les éditeurs répondent à ${pc(K.reply_rate_neg, 0)} des avis négatifs, mais ${pc(K.templated_reply_share, 0)} des réponses sont des messages types.` + (best.reply < 1 ? ` ${best.app_name}, en tête du classement, ne répond à aucun avis.` : '')],
+];
+$('#takeaways').append(...take.map(([t, p]) => h('div', {class: 'card'}, h('b', {text: t}), h('p', {text: p}))));
+
+const kpis = [
+  ['Avis analysés', nf(K.total_reviews), `${K.n_apps} applications`],
+  ['Note moyenne', nf(K.avg_score, 2) + ' / 5', 'tous avis confondus'],
+  ['Avis négatifs (1–2★)', pc(K.pct_negative), `${nf(totalNeg)} avis`],
+  ['Avis négatifs avec un motif identifiable', pc(K.neg_with_theme, 0), 'les autres disent seulement « nul », « décevant »…'],
+  ['Avis négatifs ayant reçu une réponse', pc(K.reply_rate_neg, 0), `dont ${pc(K.templated_reply_share, 0)} de messages types`],
+];
+$('#kpis').append(...kpis.map(([l, v, s]) => h('div', {class: 'card kpi'}, h('div', {class: 'l', text: l}), h('div', {class: 'v', text: v}), h('div', {class: 's', text: s}))));
+
+$('#gapLead').textContent = `Les ${nf(P.cap_per_app)} avis collectés par app sont les plus récents. Pour les grosses apps de mobile money (Wave, My Airtel, My Nita), ils ne couvrent que quelques mois ; pour les banques, ils remontent parfois à 2019, quand leurs applis étaient moins bonnes. Comparer « toute la période » désavantage donc les banques. La période commune (du ${dt(W.common_start)} au ${dt(W.common_end)}) compare tout le monde sur les mêmes mois.`;
+const tiles = [
+  [nf(gapFull, 2) + ' pt', 'Écart de note mobile money − banques, toute la période'],
+  [nf(gapWin, 2) + ' pt', `Même écart, période commune (depuis le ${dt(W.common_start)})`],
+  [pc(BK.pct_neg, 0) + ' → ' + pc(BK.window.pct_neg, 0), 'Avis négatifs des banques : toute la période → période commune'],
+];
+$('#gapTiles').append(...tiles.map(([v, l]) => h('div', {class: 'card tile'}, h('div', {class: 'v', text: v}), h('div', {class: 'l', text: l}))));
+const entries = D.sample_entries.map(e => `${e.app} (${mo(e.month)})`).join(', ');
+$('#volumeHow').textContent = `Les pics de volume ne veulent pas dire « plus d'utilisateurs » : ils correspondent surtout à l'arrivée dans l'échantillon des grosses apps plafonnées à ${nf(P.cap_per_app)} avis : ${entries}.`;
+$('#themesLead').textContent = `Chaque avis est classé par sujet grâce à une liste de mots-clés (ex. « code », « bloqué », « connexion » → Connexion / Accès). ${pc(K.neg_with_theme, 0)} des avis négatifs citent au moins un sujet précis ; les autres expriment un mécontentement général.`;
+
+// ── Graphiques ──────────────────────────────────────────────────────────
+const charts = {};
+const C = {};
+function readColors() {
+  for (const k of ['ink', 'ink2', 'muted', 'grid', 'axis', 'surface', 's1', 's2', 's3', 's4', 's5', 's6', 'star1', 'star2', 'star3', 'star4', 'star5', 'tip-bg', 'tip-ink']) C[k] = css('--' + k);
+  C.cat = {'Mobile Money': C.s1, 'Banque': C.s2};
+  Chart.defaults.font.family = 'system-ui,-apple-system,"Segoe UI",Roboto,sans-serif';
+  Chart.defaults.font.size = 12;
+  Chart.defaults.locale = 'fr-FR';
+  Chart.defaults.color = C.ink2;
+  Chart.defaults.borderColor = C.grid;
+  Chart.defaults.animation = false;
+  Chart.defaults.maintainAspectRatio = false;
+  Chart.defaults.plugins.legend.labels.boxWidth = 12;
+  Chart.defaults.plugins.legend.labels.boxHeight = 12;
+  Object.assign(Chart.defaults.plugins.tooltip, {backgroundColor: C['tip-bg'], titleColor: C['tip-ink'], bodyColor: C['tip-ink'], padding: 10, boxPadding: 4});
+}
+function make(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart(document.getElementById(id), cfg); }
+const bar = (extra = {}) => ({borderRadius: 4, borderSkipped: 'start', maxBarThickness: 22, ...extra});
+const line = (label, data, color) => ({type: 'line', label, data, borderColor: color, backgroundColor: color, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .25, spanGaps: false});
+const scale15 = {min: 1, max: 5, ticks: {stepSize: 1}};
+const STAR_KEYS = ['star1', 'star2', 'star3', 'star4', 'star5'];
+
+// 1. Classement
+let sortK = 'adj', sortAsc = false;
+function filteredApps() {
+  const c = $('#fCat').value, min = +$('#fMin').value;
+  return D.by_app.filter(a => (c === 'all' || a.cat === c) && a.reviews >= min);
+}
+function renderRank() {
+  const rows = filteredApps().sort((a, b) => b.adj - a.adj);
+  $('#rankBox').style.height = (rows.length * 30 + 70) + 'px';
+  const labels = rows.map(r => r.app_name);
+  make('cRank', {type: 'bar', data: {labels, datasets: ['Mobile Money', 'Banque'].map(k => ({
+      label: k, data: rows.map(r => r.cat === k ? r.adj : null), backgroundColor: C.cat[k], grouped: false, ...bar()}))},
+    options: {indexAxis: 'y', scales: {x: {...scale15, title: {display: true, text: 'Note ajustée (1 à 5)'}}, y: {grid: {display: false}}},
+      plugins: {legend: {position: 'top', align: 'start'}, tooltip: {filter: i => i.raw != null, callbacks: {
+        label: i => { const r = rows[i.dataIndex]; return [`Note ajustée : ${nf(r.adj, 2)}`, `Note brute : ${nf(r.avg, 2)} (${nf(r.reviews)} avis)`, `Avis négatifs : ${pc(r.pct_neg)}`]; }}}}}});
+}
+const COLS = [
+  ['app_name', 'Application'], ['cat', 'Catégorie'], ['reviews', 'Avis', 1], ['avg', 'Note', 1], ['adj', 'Note ajustée', 1],
+  ['pct_neg', '% négatifs (fourchette)', 1], ['trend', `Tendance ${P.trend_months} mois`, 1], ['top_pain', 'Principal motif de plainte'],
+  ['window_avg', 'Note période commune', 1],
+];
+function renderTable() {
+  const rows = filteredApps().sort((a, b) => {
+    let x = a[sortK], y = b[sortK];
+    if (sortK === 'top_pain') { x = x ? x.theme : ''; y = y ? y.theme : ''; }
+    if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === 'string' ? x.localeCompare(y, 'fr') : x - y) * (sortAsc ? 1 : -1);
+  });
+  const t = $('#tblApps'); t.replaceChildren();
+  t.append(h('thead', {}, h('tr', {}, COLS.map(([k, label, num]) => h('th', {class: num ? 'num' : null, 'aria-sort': k === sortK ? (sortAsc ? 'ascending' : 'descending') : null},
+    h('button', {type: 'button', onclick: () => { sortAsc = k === sortK ? !sortAsc : false; sortK = k; renderTable(); }}, label + (k === sortK ? (sortAsc ? ' ▲' : ' ▼') : '')))))));
+  const tb = h('tbody');
+  for (const r of rows) {
+    const tr = r.trend == null ? h('span', {class: 'sub-v', text: 'n.d.'})
+      : Math.abs(r.trend) < 0.05 ? h('span', {text: '≈ stable'})
+      : h('span', {class: r.trend > 0 ? 'up' : 'down', text: (r.trend > 0 ? '▲ +' : '▼ ') + nf(r.trend, 2)});
+    tb.append(h('tr', {},
+      h('td', {}, h('b', {text: r.app_name}), r.capped ? h('div', {class: 'sub-v', text: `avis depuis ${mo(r.first.slice(0, 7))} (plafond atteint)`}) : null),
+      h('td', {}, h('span', {class: 'badge'}, h('span', {class: 'dot', style: `background:${C.cat[r.cat]}`}), r.cat)),
+      h('td', {class: 'num', text: nf(r.reviews)}),
+      h('td', {class: 'num', text: nf(r.avg, 2)}),
+      h('td', {class: 'num'}, h('b', {text: nf(r.adj, 2)})),
+      h('td', {class: 'num'}, pc(r.pct_neg), h('div', {class: 'sub-v', text: `${nf(r.neg_lo, 0)}–${nf(r.neg_hi, 0)} %`})),
+      h('td', {class: 'num'}, tr, r.trend != null ? h('div', {class: 'sub-v', text: `${nf(r.prev_avg, 2)} → ${nf(r.recent_avg, 2)}`}) : null),
+      h('td', {}, r.top_pain ? [r.top_pain.theme, h('div', {class: 'sub-v', text: `${pc(r.top_pain.pct, 0)} de ses avis négatifs`})] : h('span', {class: 'sub-v', text: 'trop peu d\'avis négatifs'})),
+      h('td', {class: 'num'}, r.window_avg == null ? h('span', {class: 'sub-v', text: 'trop peu d\'avis'}) : [nf(r.window_avg, 2), h('div', {class: 'sub-v', text: `${nf(r.window_n)} avis`})]),
+    ));
+  }
+  t.append(tb);
+}
+$('#fCat').onchange = $('#fMin').onchange = () => { renderRank(); renderTable(); };
+
+// 2. Catégories
+function renderCategories() {
+  const cats = ['Mobile Money', 'Banque'];
+  make('cDist', {type: 'bar', data: {labels: cats, datasets: [1, 2, 3, 4, 5].map(s => ({
+      label: s + '★', data: cats.map(c => D.score_dist_by_category[c][s] || 0), backgroundColor: C[STAR_KEYS[s - 1]],
+      borderColor: C.surface, borderWidth: 2, borderSkipped: false, maxBarThickness: 34}))},
+    options: {indexAxis: 'y', scales: {x: {stacked: true, max: 100, ticks: {callback: v => v + ' %'}}, y: {stacked: true, grid: {display: false}}},
+      plugins: {legend: {position: 'bottom'}, tooltip: {callbacks: {label: i => `${i.dataset.label} : ${pc(i.raw)}`}}}}});
+  $('#tDist').replaceChildren(table(['Catégorie', '1★', '2★', '3★', '4★', '5★'], cats.map(c => [c, ...[1, 2, 3, 4, 5].map(s => pc(D.score_dist_by_category[c][s]))]), [1, 2, 3, 4, 5]));
+
+  const M = D.monthly, labels = M.map(m => mo(m.month));
+  const ok = (n, v) => n >= 30 ? v : null;
+  make('cCatMonthly', {data: {labels, datasets: [
+      line('Mobile Money', M.map(m => ok(m.n_mm, m.avg_mm)), C.s1), line('Banque', M.map(m => ok(m.n_bk, m.avg_bk)), C.s2)]},
+    options: {interaction: {mode: 'index', intersect: false}, scales: {y: scale15, x: {ticks: {maxTicksLimit: 10}}},
+      plugins: {legend: {position: 'top', align: 'start', labels: {usePointStyle: true, pointStyle: 'line'}}, tooltip: {callbacks: {label: i => `${i.dataset.label} : ${nf(i.raw, 2)}`}}}}});
+  $('#tCatMonthly').replaceChildren(table(['Mois', 'Note Mobile Money', 'Avis', 'Note Banque', 'Avis'],
+    M.map(m => [mo(m.month), nf(m.avg_mm, 2), nf(m.n_mm), nf(m.avg_bk, 2), nf(m.n_bk)]), [1, 2, 3, 4]));
+  make('cVolume', {type: 'bar', data: {labels, datasets: [
+      {label: 'Mobile Money', data: M.map(m => m.n_mm), backgroundColor: C.s1, borderColor: C.surface, borderWidth: {top: 2}, borderSkipped: false},
+      {label: 'Banque', data: M.map(m => m.n_bk), backgroundColor: C.s2, borderColor: C.surface, borderWidth: {top: 2}, borderSkipped: false}]},
+    options: {interaction: {mode: 'index', intersect: false}, scales: {x: {stacked: true, ticks: {maxTicksLimit: 10}, grid: {display: false}}, y: {stacked: true, title: {display: true, text: "Nombre d'avis"}}},
+      plugins: {legend: {position: 'top', align: 'start'}, tooltip: {callbacks: {label: i => `${i.dataset.label} : ${nf(i.raw)} avis`}}}}});
+}
+
+// 3. Thèmes
+function renderThemes() {
+  make('cThemes', {type: 'bar', data: {labels: pain.map(t => t.theme), datasets: [
+      {label: 'Banques', data: pain.map(t => t.share_of_neg_bk), backgroundColor: C.s2, ...bar({maxBarThickness: 12})},
+      {label: 'Mobile Money', data: pain.map(t => t.share_of_neg_mm), backgroundColor: C.s1, ...bar({maxBarThickness: 12})}]},
+    options: {indexAxis: 'y', scales: {x: {beginAtZero: true, ticks: {callback: v => v + ' %'}, title: {display: true, text: '% des avis négatifs de la catégorie'}}, y: {grid: {display: false}}},
+      plugins: {legend: {position: 'top', align: 'start'}, tooltip: {callbacks: {label: i => `${i.dataset.label} : ${pc(i.raw)} des avis négatifs`}}}}});
+  $('#tblThemes').replaceChildren(table(['Sujet', '% des plaintes', 'Note quand cité', '% négatifs quand cité', 'Votes « utile »'],
+    D.themes.map(t => [t.positive ? h('span', {}, t.theme, h('div', {class: 'sub-v', text: 'sujet surtout cité en compliment'})) : t.theme,
+      pc(t.share_of_neg), nf(t.avg, 2), pc(t.pct_neg, 0), nf(t.thumbs_neg)]), [1, 2, 3, 4]));
+
+  const themesH = pain.map(t => t.theme);
+  const max = Math.max(...D.theme_matrix.flatMap(r => themesH.map(t => r.values[t] || 0)));
+  const head = h('tr', {}, h('th', {text: 'Application'}), h('th', {class: 'num', text: 'Avis nég.'}), themesH.map(t => h('th', {class: 'num', style: 'white-space:normal;min-width:70px', text: t})));
+  const body = D.theme_matrix.map(r => h('tr', {}, h('td', {}, h('b', {text: r.app}), h('div', {class: 'sub-v', text: r.cat})), h('td', {class: 'num', text: nf(r.n_neg)}),
+    themesH.map(t => { const v = r.values[t] || 0, k = Math.round(100 * Math.sqrt(v / max));
+      return h('td', {class: 'cell', title: `${r.app} — ${t} : ${pc(v)} des avis négatifs`, style: `background:color-mix(in oklab, var(--s1) ${k}%, var(--surface));color:${k > 55 ? '#fff' : 'var(--ink)'}`, text: nf(v, 0)}); })));
+  $('#tblHeat').replaceChildren(h('thead', {}, head), h('tbody', {}, body));
+}
+
+// 4. Apps par mois
+const APP_COLORS = ['s1', 's2', 's3', 's4', 's5', 's6'];
+function renderAppMonthly() {
+  const M = D.monthly_by_app, apps = D.by_app.slice(0, 6).map(a => a.app_name);
+  make('cAppMonthly', {data: {labels: M.map(m => mo(m.month)), datasets: apps.map((a, i) => line(a, M.map(m => m[a] ?? null), C[APP_COLORS[i]]))},
+    options: {interaction: {mode: 'index', intersect: false}, scales: {y: scale15, x: {ticks: {maxTicksLimit: 12}}},
+      plugins: {legend: {position: 'top', align: 'start', labels: {usePointStyle: true, pointStyle: 'line'}}, tooltip: {itemSort: (a, b) => b.raw - a.raw, callbacks: {label: i => `${i.dataset.label} : ${nf(i.raw, 2)}`}}}}});
+  $('#tAppMonthly').replaceChildren(table(['Mois', ...apps], M.map(m => [mo(m.month), ...apps.map(a => nf(m[a], 2))]), apps.map((_, i) => i + 1)));
+}
+
+// 5. Versions
+const verApps = Object.keys(D.versions).sort((a, b) => D.by_app.find(x => x.app_name === b).reviews - D.by_app.find(x => x.app_name === a).reviews);
+$('#fVer').append(...verApps.map(a => h('option', {value: a, text: a})));
+if (verApps.includes('Atlantique Mobile')) $('#fVer').value = 'Atlantique Mobile';
+function renderVersions() {
+  const V = D.versions[$('#fVer').value], labels = V.map(v => v.version);
+  make('cVerAvg', {type: 'bar', data: {labels, datasets: [{label: 'Note moyenne', data: V.map(v => v.avg), backgroundColor: C.s1, ...bar()}]},
+    options: {scales: {y: scale15, x: {grid: {display: false}}}, plugins: {legend: {display: false}, tooltip: {callbacks: {
+      title: i => `Version ${V[i[0].dataIndex].version} (apparue le ${dt(V[i[0].dataIndex].first)})`,
+      label: i => [`Note moyenne : ${nf(i.raw, 2)}`, `${nf(V[i.dataIndex].n)} avis, dont ${pc(V[i.dataIndex].pct_neg)} négatifs`]}}}}});
+  const neu = v => v.n - v.n_neg - v.n_pos;
+  make('cVerCount', {type: 'bar', data: {labels, datasets: [
+      {label: 'Négatifs (1–2★)', data: V.map(v => v.n_neg), backgroundColor: C.star1},
+      {label: 'Neutres (3★)', data: V.map(neu), backgroundColor: C.star3},
+      {label: 'Positifs (4–5★)', data: V.map(v => v.n_pos), backgroundColor: C.star5}].map(d => ({...d, borderColor: C.surface, borderWidth: {top: 2}, borderSkipped: false, maxBarThickness: 22}))},
+    options: {interaction: {mode: 'index', intersect: false}, scales: {x: {stacked: true, grid: {display: false}}, y: {stacked: true, title: {display: true, text: "Nombre d'avis"}}},
+      plugins: {legend: {position: 'top', align: 'start'}, tooltip: {callbacks: {label: i => `${i.dataset.label} : ${nf(i.raw)}`}}}}});
+  $('#tVer').replaceChildren(table(['Version', 'Apparue le', 'Avis', 'Note', 'Négatifs', 'Positifs'], V.map(v => [v.version, dt(v.first), nf(v.n), nf(v.avg, 2), nf(v.n_neg), nf(v.n_pos)]), [2, 3, 4, 5]));
+}
+$('#fVer').onchange = renderVersions;
+$('#verNote').textContent = 'Lecture (données collectées en juillet 2026) : chez Atlantique Mobile, la version 1.9.0 (janvier 2024) fait bondir la note de 3,1 à 4,4. Mais le nombre d\'avis négatifs, lui, ne baisse pas (10 à 40 par trimestre, avant comme après) : ce sont les avis positifs qui sont multipliés par dix environ, ce qui arrive typiquement quand l\'app se met à demander une note à ses utilisateurs. Une partie de la « remontée » est donc un effet de mesure. Chez MyBOA (version 2.6.0, décembre 2022), la hausse s\'accompagne aussi d\'un afflux d\'avis positifs, mais les plaintes reculent vraiment ensuite (d\'environ 100 par trimestre fin 2022 à 20 mi-2023). À l\'inverse, chez Ecobank Mobile, le passage à la version 4 (fin 2019) a fait chuter la note de 3,3 à 2,4, et aucune version n\'a atteint 3,2 depuis.';
+
+// 6. Réponses
+function renderReplies() {
+  const S = D.replies.by_score;
+  $('#replyLead').textContent = `Les éditeurs répondent davantage aux avis négatifs (${pc(S[1], 0)} des avis 1★) qu'aux avis positifs (${pc(S[5], 0)} des avis 5★). Mais ${pc(K.templated_reply_share, 0)} des réponses sont des messages types, et les apps qui répondent le plus ne sont pas les mieux notées.`;
+  make('cReplies', {type: 'bar', data: {labels: [1, 2, 3, 4, 5].map(s => s + '★'), datasets: [{label: 'Taux de réponse', data: [1, 2, 3, 4, 5].map(s => S[s]), backgroundColor: C.s1, ...bar({maxBarThickness: 36})}]},
+    options: {scales: {y: {beginAtZero: true, max: 100, ticks: {callback: v => v + ' %'}}, x: {grid: {display: false}}}, plugins: {legend: {display: false}, tooltip: {callbacks: {label: i => `${pc(i.raw)} des avis ont reçu une réponse`}}}}});
+  $('#tReplies').replaceChildren(table(['Note de l\'avis', 'Taux de réponse'], [1, 2, 3, 4, 5].map(s => [stars(s), pc(S[s])]), [1]));
+  const rows = D.by_app.filter(a => a.n_neg >= 50).sort((a, b) => (b.reply_neg ?? 0) - (a.reply_neg ?? 0));
+  $('#tblReplies').replaceChildren(table(['Application', 'Avis négatifs', 'Avec réponse', 'Messages types', 'Note'],
+    rows.map(a => [a.app_name, nf(a.n_neg), pc(a.reply_neg, 0), a.templated == null ? '—' : pc(a.templated, 0), nf(a.avg, 2)]), [1, 2, 3, 4]));
+}
+
+// 7. Verbatims
+const qThemes = Object.keys(D.verbatims).filter(t => D.verbatims[t].length);
+$('#fQuote').append(...qThemes.map(t => h('option', {value: t, text: t})));
+function renderQuotes() {
+  const t = $('#fQuote').value;
+  $('#quotes').replaceChildren(...D.verbatims[t].map(q => h('div', {class: 'card'},
+    h('blockquote', {text: `« ${q.text} »`}),
+    h('div', {class: 'quote-meta', text: `${q.app} · ${stars(q.score)} · ${dt(q.date)} · ${nf(q.thumbs)} vote${q.thumbs > 1 ? 's' : ''} « utile »`}))));
+}
+$('#fQuote').onchange = renderQuotes;
+
+// Méthode
+const dq = D.data_quality;
+$('#method').append(...[
+  `Collecte : les ${nf(P.cap_per_app)} avis les plus récents de chaque app (moins si l'app en a moins), en français, sur le Google Play du Niger. Apps ayant atteint le plafond : ${dq.capped_apps.join(', ')}.`,
+  `Nettoyage : ${nf(dq.empty_or_undated_removed)} avis vide(s) retiré(s), ${nf(dq.duplicate_ids_removed)} doublon(s). ${pc(K.pct_short, 0)} des avis font ${P.short_review_words} mots ou moins (« top », « très bien ») : ils comptent dans les notes mais ne peuvent pas être classés par sujet.`,
+  'Sujets : détectés par mots-clés, en ignorant majuscules et accents et en cherchant des mots entiers (« lent » ne correspond pas à « excellent »). Méthode simple et vérifiable, mais qui rate l\'ironie et les avis en haoussa ou zarma.',
+  `Note ajustée : (somme des notes + ${P.prior_weight} × moyenne du secteur) ÷ (nombre d'avis + ${P.prior_weight}). Fourchettes : intervalle de Wilson à 95 %.`,
+  `Tendance : note des ${P.trend_months} derniers mois (${W.trend_recent.split(' → ').map(dt).join(' → ')}) comparée aux ${P.trend_months} mois précédents (${W.trend_prev.split(' → ').map(dt).join(' → ')}), seulement si les deux périodes sont complètes et ont au moins ${P.min_reviews_window} avis.`,
+  'Limites : les avis Play Store ne sont pas un sondage représentatif (les très contents et les très mécontents s\'expriment plus). Les apps présentes dans plusieurs pays (Wave, Airtel, Ecobank, BOA…) incluent des avis d\'autres pays : Google ne dit pas d\'où vient l\'auteur.',
+].map(t => h('li', {text: t})));
+
+function renderAll() {
+  readColors();
+  renderRank(); renderTable(); renderCategories(); renderThemes(); renderAppMonthly(); renderVersions(); renderReplies();
+}
+renderAll(); renderQuotes();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAll);
+})();
 </script>
 </body>
 </html>
