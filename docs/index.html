@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Avis Fintech Niger</title>
-<meta name="description" content="Ce que disent les avis Google Play sur les applications de mobile money et de banque au Niger : classement, motifs de plainte, effet des mises à jour, réponses des éditeurs.">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<meta name="description" content="Ce que disent les avis Google Play sur les applications de mobile money et de banque au Niger : classement, motifs de plainte, effet des mises à jour, réponses des entreprises.">
+<!-- Chart.js 4.5.1 (licence MIT) est copié dans ce dossier : le tableau de bord fonctionne aussi sans connexion internet -->
+<script src="chart.umd.min.js"></script>
 <!-- data.js est généré par analysis/analyze_reviews.py : il contient tous les chiffres affichés ici -->
 <script src="data.js"></script>
 <style>
@@ -86,6 +87,12 @@ blockquote{font-size:14px;margin-bottom:8px}
 .note{font-size:13px;color:var(--ink2);background:var(--surface);border:1px dashed var(--axis);border-radius:var(--radius);padding:12px 16px;margin-bottom:var(--gap)}
 ul.method{padding-left:20px;font-size:13.5px;color:var(--ink2)}
 ul.method li{margin-bottom:4px}
+.swipe{display:none;font-size:12.5px;color:var(--muted);margin-bottom:8px}
+@media (max-width:760px){.swipe{display:block}}
+.note ul{padding-left:20px;margin-top:6px}.note li{margin-bottom:6px}
+details.gloss{margin:0 0 var(--gap)}details.gloss summary{font-size:14px;font-weight:600;color:var(--ink)}
+dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px 24px;margin-top:10px;font-size:13.5px}
+dl.gloss dt{font-weight:600}dl.gloss dd{color:var(--ink2)}
 footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 </style>
 </head>
@@ -96,8 +103,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
   <h1>Mobile Money &amp; Banques au Niger : ce que disent les avis Google Play</h1>
   <div class="sub" id="subtitle"></div>
   <div class="links">
-    <a href="https://github.com/blakro/niger-fintech-reviews#readme">Comment cette analyse est faite (README)</a>
-    <a href="https://github.com/blakro/niger-fintech-reviews/blob/main/report/rapport_business.md">Rapport complet</a>
+    <a href="https://github.com/blakro/niger-fintech-reviews#readme">Comment cette analyse est faite, expliqué simplement</a>
+    <a href="https://github.com/blakro/niger-fintech-reviews/blob/main/report/rapport_business.md">Rapport complet et recommandations</a>
   </div>
 </header>
 
@@ -106,15 +113,29 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 
 <section class="kpis" id="kpis"></section>
 
+<details class="card gloss">
+  <summary>Les mots utilisés sur cette page</summary>
+  <dl class="gloss">
+    <div><dt>Avis négatif / positif</dt><dd>Négatif : 1 ou 2 étoiles. Positif : 4 ou 5 étoiles. 3 étoiles : neutre.</dd></div>
+    <div><dt>Mobile money</dt><dd>Les applis de portefeuille mobile (Wave, My Nita, My Airtel…), par opposition aux applis des banques.</dd></div>
+    <div><dt>Note ajustée</dt><dd>La note moyenne, corrigée pour ne pas surclasser une appli qui n'a que quelques avis.</dd></div>
+    <div><dt>Fourchette</dt><dd>La marge d'erreur d'un pourcentage. Peu d'avis = fourchette large = résultat fragile.</dd></div>
+    <div><dt>Période commune</dt><dd>Les mêmes mois pour toutes les applis (<span id="glossWin"></span>), pour comparer ce qui est comparable.</dd></div>
+    <div><dt>Tendance</dt><dd>La note des <span id="glossTrend"></span> derniers mois comparée aux <span id="glossTrend2"></span> mois d'avant. ▲ ça monte, ▼ ça baisse.</dd></div>
+    <div><dt>Sujet</dt><dd>Ce dont parle un avis (connexion, frais, bugs…), repéré grâce à une liste de mots-clés.</dd></div>
+    <div><dt>Message type</dt><dd>Une réponse d'entreprise copiée-collée : son début est identique à celui d'autres réponses.</dd></div>
+  </dl>
+</details>
+
 <!-- ───────────── 1. Classement ───────────── -->
 <h2>1. Classement des applications</h2>
-<p class="lead">La <b>note ajustée</b> corrige les apps qui ont très peu d'avis : chacune démarre comme si elle avait déjà
-<span id="priorW"></span> avis à la note moyenne du secteur. Une app avec 5 avis à 5/5 ne passe donc pas devant une app avec 5 000 avis à 4,7/5.</p>
+<p class="lead">La <b>note ajustée</b> protège contre les applis qui ont très peu d'avis : chacune démarre comme si elle avait déjà
+<span id="priorW"></span> avis à la note moyenne du secteur. Une appli avec 5 avis à 5/5 ne passe donc pas devant une appli avec 5 000 avis à 4,7/5.</p>
 <div class="controls" role="group" aria-label="Filtres du classement">
   <label for="fCat">Catégorie</label>
   <select id="fCat"><option value="all">Toutes</option><option>Mobile Money</option><option>Banque</option></select>
   <label for="fMin">Nombre d'avis</label>
-  <select id="fMin"><option value="0">Toutes les apps</option><option value="100" selected>100 avis ou plus</option><option value="1000">1 000 avis ou plus</option></select>
+  <select id="fMin"><option value="0">Toutes les applis</option><option value="100" selected>100 avis ou plus</option><option value="1000">1 000 avis ou plus</option></select>
 </div>
 <section class="grid">
   <div class="card" style="grid-column:1/-1">
@@ -125,7 +146,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 </section>
 <section class="card">
   <h3>Détail par application</h3>
-  <p class="how">Cliquez sur un en-tête pour trier. « Fourchette » = marge d'incertitude à 95 % du pourcentage d'avis négatifs : plus l'app a d'avis, plus elle est étroite.</p>
+  <p class="how">Cliquez sur un titre de colonne pour trier. La « fourchette » est la marge d'erreur du pourcentage d'avis négatifs : plus l'appli a d'avis, plus elle est étroite. « Pas assez de recul » : la période précédente n'est pas complète, ou compte trop peu d'avis, pour calculer une tendance.</p>
+  <p class="swipe">↔ Sur téléphone, faites glisser le tableau vers la gauche pour voir toutes les colonnes.</p>
   <div class="tbl"><table id="tblApps"></table></div>
 </section>
 
@@ -172,13 +194,14 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 </section>
 <section class="card">
   <h3>Sujets de plainte, application par application</h3>
-  <p class="how">Pour chaque app (au moins <span id="minNegMatrix"></span> avis négatifs) : % de ses avis négatifs qui citent le sujet. Plus la case est foncée, plus le sujet pèse dans ses plaintes.</p>
+  <p class="how">Pour chaque appli (au moins <span id="minNegMatrix"></span> avis négatifs) : % de ses avis négatifs qui citent le sujet. Plus la case est foncée, plus le sujet pèse dans ses plaintes.</p>
+  <p class="swipe">↔ Sur téléphone, faites glisser le tableau vers la gauche pour voir toutes les colonnes.</p>
   <div class="tbl heat"><table id="tblHeat"></table></div>
 </section>
 
 <!-- ───────────── 4. Évolution ───────────── -->
 <h2>4. Évolution des principales applications</h2>
-<p class="lead">Note moyenne mensuelle des 6 apps qui ont le plus d'avis. Les mois avec moins de 10 avis ne sont pas tracés ; une ligne qui démarre tard signifie que la collecte (plafonnée à 5 000 avis) ne remonte pas plus loin.</p>
+<p class="lead">Note moyenne mensuelle des 6 applis qui ont le plus d'avis. Les mois avec moins de 10 avis ne sont pas tracés ; une ligne qui démarre tard signifie que la collecte (plafonnée à 5 000 avis) ne remonte pas plus loin.</p>
 <section class="card" style="margin-bottom:var(--gap)">
   <div class="chart" style="height:340px"><canvas id="cAppMonthly" role="img" aria-label="Note moyenne mensuelle des 6 principales applications"></canvas></div>
   <details><summary>Voir les données</summary><div class="tbl" id="tAppMonthly"></div></details>
@@ -186,7 +209,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 
 <!-- ───────────── 5. Versions ───────────── -->
 <h2>5. L'effet des mises à jour</h2>
-<p class="lead">Chaque avis indique la version de l'app utilisée. On peut donc voir quelles versions ont fait monter ou chuter la satisfaction
+<p class="lead">Chaque avis indique la version de l'appli utilisée. On peut donc voir quelles versions ont fait monter ou chuter la satisfaction
 (versions avec au moins <span id="minVer"></span> avis).</p>
 <div class="controls"><label for="fVer">Application</label><select id="fVer"></select></div>
 <section class="grid">
@@ -205,18 +228,18 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
 <div class="note" id="verNote"></div>
 
 <!-- ───────────── 6. Réponses ───────────── -->
-<h2>6. Les éditeurs répondent-ils ?</h2>
+<h2>6. Les entreprises répondent-elles aux avis ?</h2>
 <p class="lead" id="replyLead"></p>
 <section class="grid">
   <div class="card">
-    <h3>Taux de réponse de l'éditeur selon la note de l'avis</h3>
-    <p class="how">Toutes apps confondues.</p>
+    <h3>Part des avis qui reçoivent une réponse, selon leur note</h3>
+    <p class="how">Toutes applis confondues.</p>
     <div class="chart" style="height:240px"><canvas id="cReplies" role="img" aria-label="Taux de réponse selon la note"></canvas></div>
     <details><summary>Voir les données</summary><div class="tbl" id="tReplies"></div></details>
   </div>
   <div class="card">
     <h3>Qui répond, et comment</h3>
-    <p class="how">« Messages types » : réponses dont le début est identique mot pour mot à au moins 2 autres réponses de la même app.</p>
+    <p class="how">« Messages types » : réponses dont le début est identique mot pour mot à au moins 2 autres réponses de la même appli.</p>
     <div class="tbl"><table id="tblReplies"></table></div>
   </div>
 </section>
@@ -233,7 +256,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
   <ul class="method" id="method"></ul>
 </section>
 
-<footer>Source : avis publics Google Play (google-play-scraper), storefront Niger, langue française. Données et code : github.com/blakro/niger-fintech-reviews</footer>
+<footer>Source : avis publics Google Play (google-play-scraper), Google Play du Niger, avis en français. Données et code : github.com/blakro/niger-fintech-reviews</footer>
 </div>
 
 <script>
@@ -279,7 +302,9 @@ const best = [...ranked].sort((a, b) => b.adj - a.adj)[0];
 // ── Textes ──────────────────────────────────────────────────────────────
 $('#subtitle').textContent = `${nf(K.total_reviews)} avis · ${K.n_apps} applications · du ${dt(K.period_start)} au ${dt(K.period_end)}`;
 $('#priorW').textContent = P.prior_weight;
-$('#minNegMatrix').textContent = 50;
+$('#glossWin').textContent = `du ${dt(W.common_start)} au ${dt(W.common_end)}`;
+$('#glossTrend').textContent = $('#glossTrend2').textContent = P.trend_months;
+$('#minNegMatrix').textContent = P.min_neg_for_matrix;
 $('#minVer').textContent = P.min_version_reviews;
 
 const gapFull = MM.avg - BK.avg, gapWin = MM.window.avg - BK.window.avg;
@@ -291,7 +316,7 @@ const take = [
   [`${worst.app_name} concentre ${pc(100 * worst.n_neg / totalNeg, 0)} des plaintes`,
    `${nf(worst.n_neg)} des ${nf(totalNeg)} avis négatifs de l'échantillon visent cette seule application.`],
   ['Répondre ne suffit pas',
-   `Les éditeurs répondent à ${pc(K.reply_rate_neg, 0)} des avis négatifs, mais ${pc(K.templated_reply_share, 0)} des réponses sont des messages types.` + (best.reply < 1 ? ` ${best.app_name}, en tête du classement, ne répond à aucun avis.` : '')],
+   `Les entreprises répondent à ${pc(K.reply_rate_neg, 0)} des avis négatifs, mais ${pc(K.templated_reply_share, 0)} des réponses sont des messages types.` + (best.reply < 1 ? ` ${best.app_name}, en tête du classement, ne répond à aucun avis.` : '')],
 ];
 $('#takeaways').append(...take.map(([t, p]) => h('div', {class: 'card'}, h('b', {text: t}), h('p', {text: p}))));
 
@@ -304,15 +329,15 @@ const kpis = [
 ];
 $('#kpis').append(...kpis.map(([l, v, s]) => h('div', {class: 'card kpi'}, h('div', {class: 'l', text: l}), h('div', {class: 'v', text: v}), h('div', {class: 's', text: s}))));
 
-$('#gapLead').textContent = `Les ${nf(P.cap_per_app)} avis collectés par app sont les plus récents. Pour les grosses apps de mobile money (Wave, My Airtel, My Nita), ils ne couvrent que quelques mois ; pour les banques, ils remontent parfois à 2019, quand leurs applis étaient moins bonnes. Comparer « toute la période » désavantage donc les banques. La période commune (du ${dt(W.common_start)} au ${dt(W.common_end)}) compare tout le monde sur les mêmes mois.`;
+$('#gapLead').textContent = `Les ${nf(P.cap_per_app)} avis collectés par appli sont les plus récents. Pour les grosses applis de mobile money (Wave, My Airtel, My Nita), ils ne couvrent que quelques mois ; pour les banques, ils remontent parfois à 2019, quand leurs applis étaient moins bonnes. Comparer « toute la période » désavantage donc les banques. La période commune (du ${dt(W.common_start)} au ${dt(W.common_end)}) compare tout le monde sur les mêmes mois.`;
 const tiles = [
-  [nf(gapFull, 2) + ' pt', 'Écart de note mobile money − banques, toute la période'],
-  [nf(gapWin, 2) + ' pt', `Même écart, période commune (depuis le ${dt(W.common_start)})`],
+  [nf(gapFull, 2) + ' point', 'Écart de note mobile money − banques, toute la période'],
+  [nf(gapWin, 2) + ' point', `Même écart, période commune (depuis le ${dt(W.common_start)})`],
   [pc(BK.pct_neg, 0) + ' → ' + pc(BK.window.pct_neg, 0), 'Avis négatifs des banques : toute la période → période commune'],
 ];
 $('#gapTiles').append(...tiles.map(([v, l]) => h('div', {class: 'card tile'}, h('div', {class: 'v', text: v}), h('div', {class: 'l', text: l}))));
 const entries = D.sample_entries.map(e => `${e.app} (${mo(e.month)})`).join(', ');
-$('#volumeHow').textContent = `Les pics de volume ne veulent pas dire « plus d'utilisateurs » : ils correspondent surtout à l'arrivée dans l'échantillon des grosses apps plafonnées à ${nf(P.cap_per_app)} avis : ${entries}.`;
+$('#volumeHow').textContent = `Les pics de volume ne veulent pas dire « plus d'utilisateurs » : ils correspondent surtout à l'arrivée dans l'échantillon des grosses applis plafonnées à ${nf(P.cap_per_app)} avis : ${entries}.`;
 $('#themesLead').textContent = `Chaque avis est classé par sujet grâce à une liste de mots-clés (ex. « code », « bloqué », « connexion » → Connexion / Accès). ${pc(K.neg_with_theme, 0)} des avis négatifs citent au moins un sujet précis ; les autres expriment un mécontentement général.`;
 
 // ── Graphiques ──────────────────────────────────────────────────────────
@@ -371,7 +396,7 @@ function renderTable() {
     h('button', {type: 'button', onclick: () => { sortAsc = k === sortK ? !sortAsc : false; sortK = k; renderTable(); }}, label + (k === sortK ? (sortAsc ? ' ▲' : ' ▼') : '')))))));
   const tb = h('tbody');
   for (const r of rows) {
-    const tr = r.trend == null ? h('span', {class: 'sub-v', text: 'n.d.'})
+    const tr = r.trend == null ? h('span', {class: 'sub-v', text: 'pas assez de recul'})
       : Math.abs(r.trend) < 0.05 ? h('span', {text: '≈ stable'})
       : h('span', {class: r.trend > 0 ? 'up' : 'down', text: (r.trend > 0 ? '▲ +' : '▼ ') + nf(r.trend, 2)});
     tb.append(h('tr', {},
@@ -465,16 +490,20 @@ function renderVersions() {
   $('#tVer').replaceChildren(table(['Version', 'Apparue le', 'Avis', 'Note', 'Négatifs', 'Positifs'], V.map(v => [v.version, dt(v.first), nf(v.n), nf(v.avg, 2), nf(v.n_neg), nf(v.n_pos)]), [2, 3, 4, 5]));
 }
 $('#fVer').onchange = renderVersions;
-$('#verNote').textContent = 'Lecture (données collectées en juillet 2026) : chez Atlantique Mobile, la version 1.9.0 (janvier 2024) fait bondir la note de 3,1 à 4,4. Mais le nombre d\'avis négatifs, lui, ne baisse pas (10 à 40 par trimestre, avant comme après) : ce sont les avis positifs qui sont multipliés par dix environ, ce qui arrive typiquement quand l\'app se met à demander une note à ses utilisateurs. Une partie de la « remontée » est donc un effet de mesure. Chez MyBOA (version 2.6.0, décembre 2022), la hausse s\'accompagne aussi d\'un afflux d\'avis positifs, mais les plaintes reculent vraiment ensuite (d\'environ 100 par trimestre fin 2022 à 20 mi-2023). À l\'inverse, chez Ecobank Mobile, le passage à la version 4 (fin 2019) a fait chuter la note de 3,3 à 2,4, et aucune version n\'a atteint 3,2 depuis.';
+$('#verNote').append(h('b', {text: 'Trois exemples à retenir (données collectées en juillet 2026)'}), h('ul', {}, [
+  'Atlantique Mobile : avec la version 1.9.0 (janvier 2024), la note bondit de 3,1 à 4,4. Mais le nombre d\'avis négatifs ne baisse pas (10 à 40 par trimestre, avant comme après). Ce sont les avis positifs qui explosent : de 13 à 51 par trimestre en 2023, à plus de 250 en 2024. C\'est typique d\'une appli qui se met à demander « Notez-nous ! » à ses utilisateurs. Une partie de la remontée vient donc de la façon de mesurer, pas de l\'appli elle-même.',
+  'MyBOA : avec la version 2.6.0 (décembre 2022), la note passe de 2,3 à 4,2. Là aussi les avis positifs affluent, mais les plaintes reculent vraiment : d\'environ 100 par trimestre fin 2022 à une trentaine mi-2023, puis une vingtaine depuis 2024.',
+  'Ecobank Mobile : le passage à la version 4 (fin 2019) fait chuter la note de 3,3 à 2,4. Aucune version n\'a atteint 3,2 depuis.',
+].map(t => h('li', {text: t}))));
 
 // 6. Réponses
 function renderReplies() {
   const S = D.replies.by_score;
-  $('#replyLead').textContent = `Les éditeurs répondent davantage aux avis négatifs (${pc(S[1], 0)} des avis 1★) qu'aux avis positifs (${pc(S[5], 0)} des avis 5★). Mais ${pc(K.templated_reply_share, 0)} des réponses sont des messages types, et les apps qui répondent le plus ne sont pas les mieux notées.`;
+  $('#replyLead').textContent = `Les entreprises répondent davantage aux avis négatifs (${pc(S[1], 0)} des avis 1★) qu'aux avis positifs (${pc(S[5], 0)} des avis 5★). Mais ${pc(K.templated_reply_share, 0)} des réponses sont des messages types, et les applis qui répondent le plus ne sont pas les mieux notées.`;
   make('cReplies', {type: 'bar', data: {labels: [1, 2, 3, 4, 5].map(s => s + '★'), datasets: [{label: 'Taux de réponse', data: [1, 2, 3, 4, 5].map(s => S[s]), backgroundColor: C.s1, ...bar({maxBarThickness: 36})}]},
     options: {scales: {y: {beginAtZero: true, max: 100, ticks: {callback: v => v + ' %'}}, x: {grid: {display: false}}}, plugins: {legend: {display: false}, tooltip: {callbacks: {label: i => `${pc(i.raw)} des avis ont reçu une réponse`}}}}});
   $('#tReplies').replaceChildren(table(['Note de l\'avis', 'Taux de réponse'], [1, 2, 3, 4, 5].map(s => [stars(s), pc(S[s])]), [1]));
-  const rows = D.by_app.filter(a => a.n_neg >= 50).sort((a, b) => (b.reply_neg ?? 0) - (a.reply_neg ?? 0));
+  const rows = D.by_app.filter(a => a.n_neg >= P.min_neg_for_matrix).sort((a, b) => (b.reply_neg ?? 0) - (a.reply_neg ?? 0));
   $('#tblReplies').replaceChildren(table(['Application', 'Avis négatifs', 'Avec réponse', 'Messages types', 'Note'],
     rows.map(a => [a.app_name, nf(a.n_neg), pc(a.reply_neg, 0), a.templated == null ? '—' : pc(a.templated, 0), nf(a.avg, 2)]), [1, 2, 3, 4]));
 }
@@ -493,12 +522,12 @@ $('#fQuote').onchange = renderQuotes;
 // Méthode
 const dq = D.data_quality;
 $('#method').append(...[
-  `Collecte : les ${nf(P.cap_per_app)} avis les plus récents de chaque app (moins si l'app en a moins), en français, sur le Google Play du Niger. Apps ayant atteint le plafond : ${dq.capped_apps.join(', ')}.`,
+  `Collecte : les ${nf(P.cap_per_app)} avis les plus récents de chaque appli (moins si elle en a moins), en français, sur le Google Play du Niger. Applis ayant atteint ce plafond : ${dq.capped_apps.join(', ')}.`,
   `Nettoyage : ${nf(dq.empty_or_undated_removed)} avis vide(s) retiré(s), ${nf(dq.duplicate_ids_removed)} doublon(s). ${pc(K.pct_short, 0)} des avis font ${P.short_review_words} mots ou moins (« top », « très bien ») : ils comptent dans les notes mais ne peuvent pas être classés par sujet.`,
-  'Sujets : détectés par mots-clés, en ignorant majuscules et accents et en cherchant des mots entiers (« lent » ne correspond pas à « excellent »). Méthode simple et vérifiable, mais qui rate l\'ironie et les avis en haoussa ou zarma.',
-  `Note ajustée : (somme des notes + ${P.prior_weight} × moyenne du secteur) ÷ (nombre d'avis + ${P.prior_weight}). Fourchettes : intervalle de Wilson à 95 %.`,
-  `Tendance : note des ${P.trend_months} derniers mois (${W.trend_recent.split(' → ').map(dt).join(' → ')}) comparée aux ${P.trend_months} mois précédents (${W.trend_prev.split(' → ').map(dt).join(' → ')}), seulement si les deux périodes sont complètes et ont au moins ${P.min_reviews_window} avis.`,
-  'Limites : les avis Play Store ne sont pas un sondage représentatif (les très contents et les très mécontents s\'expriment plus). Les apps présentes dans plusieurs pays (Wave, Airtel, Ecobank, BOA…) incluent des avis d\'autres pays : Google ne dit pas d\'où vient l\'auteur.',
+  'Sujets : détectés par mots-clés, en ignorant majuscules et accents et en cherchant des mots entiers (« lent » ne correspond pas à « excellent »). Méthode simple et vérifiable, mais qui ne comprend ni l\'ironie ni les avis en haoussa ou en zarma.',
+  `Note ajustée : (somme des notes + ${P.prior_weight} × moyenne du secteur) ÷ (nombre d'avis + ${P.prior_weight}). Fourchettes : marge d'erreur à 95 % (méthode dite de Wilson).`,
+  `Tendance : note des ${P.trend_months} derniers mois (${W.trend_recent.split(' → ').map(dt).join(' → ')}) comparée aux ${P.trend_months} mois précédents (${W.trend_prev.split(' → ').map(dt).join(' → ')}), seulement si les deux périodes sont complètes et ont au moins ${P.min_reviews_window} avis chacune. En dessous de 0,05 point d'écart, la note est dite stable.`,
+  'Limites : les avis Play Store ne sont pas un sondage représentatif (les très contents et les très mécontents s\'expriment plus). Les applis présentes dans plusieurs pays (Wave, Airtel, Ecobank, BOA…) incluent des avis d\'autres pays : Google ne dit pas d\'où vient l\'auteur.',
 ].map(t => h('li', {text: t})));
 
 function renderAll() {

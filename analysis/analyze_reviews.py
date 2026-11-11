@@ -44,7 +44,7 @@ BANKS = {"Ecobank Mobile", "MyBOA", "BIA Niger Mobile", "My KEAZ (Orabank)", "BS
          "Atlantique Mobile", "BAGRINET", "BIN MOBILE", "BHN Mobile"}
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 3. LEXIQUE DES THÈMES
+# LEXIQUE DES THÈMES (utilisé à l'étape 3)
 #    Le texte est d'abord mis en minuscules et débarrassé de ses accents
 #    (« Mise à jour » → « mise a jour »), puis chaque expression est cherchée
 #    comme MOT ENTIER : « lent » ne correspond plus à « excellent », « cher » ne
@@ -305,7 +305,7 @@ def main() -> None:
         "cap_per_app": CAP_PER_APP, "min_reviews_ranking": MIN_REVIEWS_RANKING,
         "prior_weight": PRIOR_WEIGHT, "min_reviews_window": MIN_REVIEWS_WINDOW,
         "trend_months": TREND_MONTHS, "min_version_reviews": MIN_VERSION_REVIEWS,
-        "short_review_words": SHORT_REVIEW_WORDS,
+        "short_review_words": SHORT_REVIEW_WORDS, "min_neg_for_matrix": MIN_NEG_FOR_MATRIX,
     }
     agg["windows"] = {
         "common_start": str(window_start.date()), "common_end": str(end.date()),

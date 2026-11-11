@@ -14,8 +14,8 @@ Ce projet lit **32 586 avis** laissés sur Google Play pour **20 applications** 
 - **Le mobile money est mieux noté que les banques** : 4,5/5 contre 3,6/5. Mais en comparant les mêmes mois (mars à juillet 2026), l'écart est deux fois plus petit (4,6 contre 4,2). Les applis bancaires ont progressé.
 - **Les mieux notées** : My Nita (4,7) et Wave (4,6). **Les moins bien notées** : My KEAZ d'Orabank (2,4, sur seulement 222 avis) et Ecobank Mobile (2,8).
 - **Ecobank Mobile reçoit à elle seule près de la moitié (48 %) de toutes les plaintes.**
-- **Plainte n° 1 : « je n'arrive pas à entrer dans mon compte »** (code qui n'arrive pas, compte bloqué, nouveau téléphone). Elle revient dans 1 avis négatif sur 3.
-- **Répondre ne suffit pas** : 96 % des réponses des entreprises sont des messages copiés-collés, et l'appli la mieux notée ne répond jamais.
+- **Plainte n° 1 : « je n'arrive pas à entrer dans mon compte »** (code qui n'arrive pas, compte bloqué, nouveau téléphone). Elle revient dans près d'1 avis négatif sur 3 (31 %).
+- **Répondre ne suffit pas** : les entreprises répondent à 64 % des avis négatifs, mais 96 % de leurs réponses sont des messages copiés-collés, et l'appli la mieux notée ne répond jamais.
 
 ---
 
@@ -61,7 +61,7 @@ C'est le cœur de l'analyse. Pour chaque sujet, on a établi une **liste de mots
 
 | Sujet | Exemples de mots-clés |
 |---|---|
-| Connexion / Accès | connexion, code, OTP, mot de passe, compte bloqué, changer de téléphone |
+| Connexion / Accès | connexion, code, OTP (code reçu par SMS), mot de passe, compte bloqué, changer de téléphone |
 | Inscription / Activation | inscription, créer un compte, enrôlement, activer, pièce d'identité |
 | Mise à jour / Installation | mise à jour, nouvelle version, installer, télécharger |
 | Bugs / Plantages | bug, plante, erreur, ne marche pas, ne s'ouvre pas |
@@ -80,11 +80,11 @@ C'est le cœur de l'analyse. Pour chaque sujet, on a établi une **liste de mots
 | Indicateur | Ce que ça veut dire, simplement |
 |---|---|
 | **Note moyenne** | La moyenne des étoiles (sur 5). |
-| **% d'avis négatifs** | La part des avis à 1 ou 2 étoiles. |
+| **% d'avis négatifs** | La part des avis à 1 ou 2 étoiles. (Un avis positif a 4 ou 5 étoiles ; 3 étoiles, c'est neutre.) |
 | **Note ajustée** | Une note qui se méfie des applis qui ont peu d'avis. Un restaurant avec 2 avis à 5/5 n'est pas forcément meilleur qu'un restaurant avec 2 000 avis à 4,7/5. On fait donc « démarrer » chaque appli comme si elle avait déjà 50 avis moyens. Plus l'appli a d'avis, moins ce coup de pouce compte. |
 | **Fourchette** | La marge d'erreur d'un pourcentage. « 15 % d'avis négatifs (9 à 22 %) » veut dire : avec si peu d'avis, la vraie valeur est probablement entre 9 et 22 %. Plus l'appli a d'avis, plus la fourchette est étroite. |
 | **Période commune** | Une comparaison sur les **mêmes mois** pour tout le monde. Comme on ne garde que les 5 000 derniers avis, ceux de Wave ne couvrent que 4 mois alors que ceux d'une banque peuvent remonter à 2019. C'est comme comparer deux équipes de foot : il faut regarder la même saison. |
-| **Tendance** | La note des 6 derniers mois comparée aux 6 mois précédents. ▲ = ça s'améliore, ▼ = ça se dégrade. |
+| **Tendance** | La note des 6 derniers mois comparée aux 6 mois précédents. ▲ = ça monte, ▼ = ça baisse. « Pas assez de recul » = la période précédente est incomplète ou compte trop peu d'avis. |
 | **Principal motif de plainte** | Le sujet le plus cité dans les avis négatifs d'une appli. |
 | **Note par version** | La satisfaction pour chaque version de l'appli, pour voir si une mise à jour a amélioré ou abîmé l'expérience. |
 | **Messages types** | Les réponses de l'entreprise qui commencent par exactement la même phrase que d'autres réponses (copier-coller). |
@@ -101,14 +101,17 @@ Le tableau de bord est mis à jour **automatiquement** dès qu'on relance l'anal
 
 ## 🧭 Comment lire le tableau de bord
 
-1. **À retenir** : les 4 messages clés, à lire en premier.
-2. **Classement** : choisissez une catégorie (banque ou mobile money) et un nombre minimum d'avis. Cliquez sur les titres du tableau pour le trier.
-3. **Banques ou mobile money** : pourquoi l'écart est plus petit qu'il n'y paraît.
-4. **Pourquoi les utilisateurs se plaignent** : les sujets de plainte, puis un tableau « application × sujet ». Plus la case est foncée, plus le sujet pèse.
-5. **Évolution** : la note mois par mois des 6 plus grosses applis.
-6. **Effet des mises à jour** : choisissez une appli pour voir sa note version par version.
-7. **Réponses des éditeurs** : qui répond, et avec quels messages.
-8. **Ce que disent les utilisateurs** : les avis les plus approuvés par les autres utilisateurs, sujet par sujet. Les noms des auteurs ne sont jamais affichés.
+Tout en haut, **« À retenir »** donne les 4 messages clés : commencez par là. Juste en dessous, **« Les mots utilisés sur cette page »** explique le vocabulaire (note ajustée, fourchette, période commune…).
+
+Viennent ensuite 7 parties, numérotées comme sur la page :
+
+1. **Classement des applications** : choisissez une catégorie (banque ou mobile money) et un nombre minimum d'avis. Cliquez sur les titres du tableau pour le trier.
+2. **Banques ou mobile money** : pourquoi l'écart est plus petit qu'il n'y paraît.
+3. **Pourquoi les utilisateurs se plaignent** : les sujets de plainte, puis un tableau « application × sujet ». Plus la case est foncée, plus le sujet pèse.
+4. **Évolution des principales applications** : la note mois par mois des 6 applis qui ont le plus d'avis.
+5. **L'effet des mises à jour** : choisissez une appli pour voir sa note version par version.
+6. **Les entreprises répondent-elles aux avis ?** : qui répond, et avec quels messages.
+7. **Ce que disent les utilisateurs** : les avis les plus approuvés par les autres utilisateurs, sujet par sujet. Les noms des auteurs ne sont jamais affichés.
 
 Sous la plupart des graphiques, **« Voir les données »** affiche les chiffres exacts sous forme de tableau.
 
@@ -134,7 +137,7 @@ Sous la plupart des graphiques, **« Voir les données »** affiche les chiffres
 | `analysis/analyze_reviews.py` | **Étapes 2 à 4** : nettoyage, classement par sujet, calculs. La liste des mots-clés se trouve en haut de ce fichier. |
 | `data/reviews_clean.csv` | Les avis nettoyés, avec leurs sujets |
 | `analysis/aggregates.json` | Tous les chiffres calculés |
-| `docs/index.html` + `docs/data.js` | **Étape 5** : le tableau de bord |
+| `docs/index.html` + `docs/data.js` | **Étape 5** : le tableau de bord (`docs/chart.umd.min.js` est l'outil qui dessine les graphiques) |
 | `report/rapport_business.md` | **Étape 5** : le rapport écrit |
 
 ---
@@ -155,7 +158,7 @@ pip install pandas google-play-scraper
 python analysis/analyze_reviews.py
 ```
 
-**3. Voir le résultat** : ouvrir `docs/index.html` dans un navigateur.
+**3. Voir le résultat** : ouvrir `docs/index.html` dans un navigateur. Aucune connexion internet n'est nécessaire : la bibliothèque de graphiques (Chart.js 4.5.1, licence MIT) est incluse dans `docs/`.
 
 **Modifier un réglage** : tous les paramètres (plafond, seuils, poids de la note ajustée, fenêtre de tendance) sont regroupés en haut de `analysis/analyze_reviews.py`, section « 1. PARAMÈTRES ». Pour corriger un classement par sujet, modifier le dictionnaire `THEMES` et ajouter une phrase témoin dans `LEXICON_TESTS`.
 

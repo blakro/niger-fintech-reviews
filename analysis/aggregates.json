@@ -34,7 +34,8 @@
   "min_reviews_window": 30,
   "trend_months": 6,
   "min_version_reviews": 40,
-  "short_review_words": 3
+  "short_review_words": 3,
+  "min_neg_for_matrix": 50
  },
  "windows": {
   "common_start": "2026-03-07",
